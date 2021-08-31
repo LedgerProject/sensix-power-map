@@ -5,6 +5,8 @@ export const Container = styled.div`
   align-items: center;
   height: 6rem;
   padding: 0 4rem;
+  box-shadow: 0px 5px 20px 5px rgb(182 235 255 / 40%);
+  z-index: 99999;
 `;
 
 export const Spacer = styled.div`

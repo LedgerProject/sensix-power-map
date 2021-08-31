@@ -10,7 +10,7 @@ export function Router() {
       <Navbar />
 
       <Switch>
-        <Route exact path="/" component={Map} />
+        <Route path="/" component={Map} />
       </Switch>
     </BrowserRouter>
   );
