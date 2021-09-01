@@ -1,6 +1,7 @@
-import React from "react";
+import React, { SetStateAction } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { LatLngLiteral, LatLngBoundsLiteral } from "leaflet";
+import { ICell } from "src/types";
 
 import { Cell } from "../Cell/Cell";
 
@@ -13,7 +14,11 @@ const mockData = [
   { coordinates: { lat: 42, lng: 24 } },
 ];
 
-export function Map() {
+interface Props {
+  setCell: React.Dispatch<SetStateAction<ICell | undefined>>;
+}
+
+export function Map({ setCell }: Props) {
   const center: LatLngLiteral = {
     lat: 46.6427,
     lng: 25.5887,
@@ -45,6 +50,7 @@ export function Map() {
       />
       {mockData.map((item) => (
         <Cell
+          setCell={setCell}
           key={`${item.coordinates.lat}-${item.coordinates.lng}`}
           cell={item}
         />
