@@ -13,6 +13,8 @@ interface FlexProps {
 
 export const Container = styled.div<ContainerProps>`
   display: ${({ hidden }) => (hidden ? "none" : "flex")};
+  opacity: ${({ hidden }) => (hidden ? "0" : "1")};
+  transform: opacity 0.3s ease-in;
   flex-direction: column;
   position: fixed;
   right: 4rem;
@@ -27,6 +29,15 @@ export const Container = styled.div<ContainerProps>`
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @keyframes fadeInOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 `;
 
@@ -63,6 +74,8 @@ export const ChartsDummy = styled.div`
   min-height: 28rem;
   width: 100%;
   margin-bottom: 3.2rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const P = styled.p`
@@ -86,6 +99,7 @@ export const H4 = styled.h4`
 
 export const Span = styled.span`
   font-size: 1.2rem;
+  line-height: 1.6rem;
   color: #243746;
   margin-bottom: 2.4rem;
 `;
@@ -106,4 +120,5 @@ export const Button = styled.button`
   background-color: #fff;
   border-radius: 3rem;
   border: none;
+  cursor: pointer;
 `;

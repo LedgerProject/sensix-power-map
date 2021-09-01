@@ -1,4 +1,5 @@
-import React from "react";
+import React, { SetStateAction } from "react";
+import { ICell } from "src/types";
 
 import {
   Container,
@@ -14,18 +15,39 @@ import {
   Link,
   Button,
 } from "./Overlay.style";
+import { TrendChart } from "../TrendChart/TrendChart";
 
 interface Props {
+  setCell: React.Dispatch<SetStateAction<ICell | undefined>>;
   hidden?: boolean;
+  cell?: ICell;
 }
 
-export function Overlay({ hidden }: Props) {
+const chartData = [
+  [
+    { x: 0, y: 1 },
+    { x: 1, y: 2 },
+    { x: 2, y: 2 },
+    { x: 3, y: 3 },
+  ],
+  [
+    { x: 0, y: 1 },
+    { x: 1, y: 2 },
+    { x: 2, y: 2 },
+    { x: 3, y: 2 },
+  ],
+];
+
+export function Overlay({ hidden, cell, setCell }: Props) {
   return (
     <Container hidden={hidden}>
       {/** absolutely pos */}
-      <CloseButton />
+      <CloseButton onClick={() => setCell(undefined)} />
       <H6>Harmonic Distortions chart</H6>
-      <ChartsDummy />
+      <ChartsDummy>
+        <TrendChart color="#ff9700" data={chartData[0]} />
+        <TrendChart color="#ff9700" data={chartData[1]} />
+      </ChartsDummy>
       <Row>
         <P>Country</P>
         <H7>Romania</H7>
@@ -54,7 +76,7 @@ export function Overlay({ hidden }: Props) {
         sint occaecat cupidatat non proident.
       </Span>
       <Link href="#">Read more</Link>
-      <Row>
+      <Row margin="auto 0 0 0">
         <Button>SHARE</Button>
       </Row>
     </Container>
