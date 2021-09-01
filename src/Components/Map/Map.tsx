@@ -3,7 +3,6 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import { LatLngLiteral, LatLngBoundsLiteral } from "leaflet";
 
 import { Cell } from "../Cell/Cell";
-import { Overlay } from "../Overlay/Overlay";
 
 const mockData = [
   { coordinates: { lat: 43, lng: 25 } },
@@ -50,7 +49,6 @@ export function Map() {
           cell={item}
         />
       ))}
-      <Overlay />
     </MapContainer>
   );
 }

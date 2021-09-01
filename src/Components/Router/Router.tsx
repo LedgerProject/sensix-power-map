@@ -1,7 +1,7 @@
 import React from "react";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { Map } from "../Map/Map";
+import { Home } from "src/Pages/Home/Home";
 import { Navbar } from "../Navbar/Navbar";
 
 export function Router() {
@@ -10,7 +10,7 @@ export function Router() {
       <Navbar />
 
       <Switch>
-        <Route path="/" component={Map} />
+        <Route path="/" component={Home} />
       </Switch>
     </BrowserRouter>
   );
