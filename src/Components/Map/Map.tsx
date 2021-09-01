@@ -24,7 +24,6 @@ export function Map() {
 
   return (
     <MapContainer
-      scrollWheelZoom={false}
       style={{
         position: "absolute",
         left: 0,
@@ -55,7 +54,7 @@ export function Map() {
             [item.coordinates.lat, item.coordinates.lng],
             [item.coordinates.lat + 0.3, item.coordinates.lng + 0.5],
           ]}
-        ></Rectangle>
+        />
       ))}
     </MapContainer>
   );
