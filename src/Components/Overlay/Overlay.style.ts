@@ -24,6 +24,7 @@ export const Container = styled.div<ContainerProps>`
   padding: 40px;
   border-radius: 1rem;
   overflow-y: auto;
+  box-shadow: 0 4px 16px 0 rgba(126, 141, 144, 0.3);
 
   &::-webkit-scrollbar {
     display: none;

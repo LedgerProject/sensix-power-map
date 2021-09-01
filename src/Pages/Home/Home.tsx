@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Legend } from "src/Components/Legend/Legend";
 import { Map } from "src/Components/Map/Map";
 import { Overlay } from "src/Components/Overlay/Overlay";
 import { ICell } from "src/types";
@@ -10,6 +11,7 @@ export function Home() {
     <div>
       <Map setCell={setCell} />
       <Overlay hidden={!cell} cell={cell} setCell={setCell} />
+      <Legend />
     </div>
   );
 }
