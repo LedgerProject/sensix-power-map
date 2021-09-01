@@ -9,3 +9,25 @@ body {
   box-sizing: border-box;
   height: 100%;
 }
+
+.leaflet-control-container {
+  position: absolute;
+  left: 4rem;
+  top: 4rem;
+}
+
+.leaflet-control-zoom-in {
+  width: 4rem !important;
+  height: 4rem !important;
+  line-height: 4rem !important;
+}
+
+.leaflet-bar {
+  margin: 0;
+}
+
+.leaflet-control-zoom-out {
+  width: 4rem !important;
+  height: 4rem !important;
+  line-height: 4rem !important;
+}

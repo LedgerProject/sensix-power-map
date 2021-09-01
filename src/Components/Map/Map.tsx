@@ -1,6 +1,9 @@
 import React from "react";
-import { MapContainer, TileLayer, Rectangle } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import { LatLngLiteral, LatLngBoundsLiteral } from "leaflet";
+
+import { Cell } from "../Cell/Cell";
+import { Overlay } from "../Overlay/Overlay";
 
 const mockData = [
   { coordinates: { lat: 43, lng: 25 } },
@@ -42,20 +45,12 @@ export function Map() {
         subdomains="abcd"
       />
       {mockData.map((item) => (
-        <Rectangle
-          pathOptions={{
-            fillColor: "red",
-            stroke: false,
-            fill: true,
-            fillOpacity: 0.6,
-            interactive: true,
-          }}
-          bounds={[
-            [item.coordinates.lat, item.coordinates.lng],
-            [item.coordinates.lat + 0.3, item.coordinates.lng + 0.5],
-          ]}
+        <Cell
+          key={`${item.coordinates.lat}-${item.coordinates.lng}`}
+          cell={item}
         />
       ))}
+      <Overlay />
     </MapContainer>
   );
 }
