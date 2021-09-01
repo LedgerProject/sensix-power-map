@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { ReactComponent as CloseIcon } from "../Icons/close.svg";
 
 interface ContainerProps {
-  hidden?: boolean;
   margin?: string;
 }
 
@@ -12,8 +11,7 @@ interface FlexProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  display: ${({ hidden }) => (hidden ? "none" : "flex")};
-  opacity: ${({ hidden }) => (hidden ? "0" : "1")};
+  display: flex;
   transform: opacity 0.3s ease-in;
   flex-direction: column;
   position: fixed;
