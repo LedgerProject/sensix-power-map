@@ -3,19 +3,31 @@ import { ReactComponent as CloseIcon } from "../Icons/close.svg";
 
 interface ContainerProps {
   hidden?: boolean;
+  margin?: string;
+}
+
+interface FlexProps {
+  justifyContent?: string;
+  alignItems?: string;
 }
 
 export const Container = styled.div<ContainerProps>`
-  display: ${({ hidden }) => (hidden ? "none" : "block")};
+  display: ${({ hidden }) => (hidden ? "none" : "flex")};
+  flex-direction: column;
   position: fixed;
   right: 4rem;
-  top: 20%;
-  bottom: 20%;
+  top: 15%;
+  bottom: 15%;
   width: 48.8rem;
   background: white;
   z-index: 999999;
-  padding: 0 20px 40px 0;
+  padding: 40px;
   border-radius: 1rem;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const CloseButton = styled(CloseIcon)`
@@ -25,4 +37,73 @@ export const CloseButton = styled(CloseIcon)`
   &:hover {
     cursor: pointer;
   }
+`;
+
+export const Row = styled.div<FlexProps & ContainerProps>`
+  width: 100%;
+  display: flex;
+  justify-content: ${({ justifyContent }) =>
+    justifyContent ? justifyContent : "space-between"};
+  align-items: ${({ alignItems }) => (alignItems ? alignItems : "center")};
+  margin: ${({ margin }) => margin || undefined};
+`;
+
+export const H6 = styled.h6`
+  font-size: 1.8rem;
+  color: #243746;
+`;
+
+export const H7 = styled.h6`
+  font-size: 1.6rem;
+  color: #243746;
+`;
+
+export const ChartsDummy = styled.div`
+  height: 28rem;
+  min-height: 28rem;
+  width: 100%;
+  margin-bottom: 3.2rem;
+`;
+
+export const P = styled.p`
+  color: #243746;
+  font-size: 1.6rem;
+`;
+
+export const BreakLine = styled.div`
+  width: 100%;
+  height: 0.2rem;
+  min-height: 0.2rem;
+  background: #e8efec;
+  margin-top: 2.4rem;
+  margin-bottom: 3.2rem;
+`;
+
+export const H4 = styled.h4`
+  color: #243746;
+  font-size: 2.4rem;
+`;
+
+export const Span = styled.span`
+  font-size: 1.2rem;
+  color: #243746;
+  margin-bottom: 2.4rem;
+`;
+
+export const Link = styled.a`
+  color: #00ce7c !important; //leaflet overrides this
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-decoration: none;
+`;
+
+export const Button = styled.button`
+  width: 20rem;
+  margin-top: auto;
+  margin-left: auto;
+  padding: 1.2rem 2.4rem;
+  box-shadow: 0 5px 20px 0 rgba(36, 55, 70, 0.1);
+  background-color: #fff;
+  border-radius: 3rem;
+  border: none;
 `;
