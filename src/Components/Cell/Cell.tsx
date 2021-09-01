@@ -1,6 +1,6 @@
 import React, { SetStateAction } from "react";
 
-import { Rectangle } from "react-leaflet";
+import { Rectangle, useMap } from "react-leaflet";
 import { ICell } from "src/types";
 
 interface Props {
@@ -9,11 +9,18 @@ interface Props {
 }
 
 export function Cell({ cell, setCell }: Props) {
+  const map = useMap();
+
+  function onClickHandler() {
+    setCell(cell);
+    map.setView(cell.coordinates);
+  }
+
   return (
     <div style={{ zIndex: 99999999 }}>
       <Rectangle
         eventHandlers={{
-          click: () => setCell(cell),
+          click: () => onClickHandler(),
         }}
         key={`${cell.coordinates.lat}-${cell.coordinates.lng}`}
         pathOptions={{

@@ -8,16 +8,16 @@ interface ContainerProps {
 interface FlexProps {
   justifyContent?: string;
   alignItems?: string;
+  flex?: string;
 }
 
 export const Container = styled.div<ContainerProps>`
   display: flex;
-  transform: opacity 0.3s ease-in;
   flex-direction: column;
   position: fixed;
   right: 4rem;
-  top: 15%;
-  bottom: 15%;
+  top: 13%;
+  bottom: 22%;
   width: 48.8rem;
   background: white;
   z-index: 999999;
@@ -28,15 +28,6 @@ export const Container = styled.div<ContainerProps>`
 
   &::-webkit-scrollbar {
     display: none;
-  }
-
-  @keyframes fadeInOpacity {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
   }
 `;
 
@@ -51,11 +42,17 @@ export const CloseButton = styled(CloseIcon)`
 
 export const Row = styled.div<FlexProps & ContainerProps>`
   width: 100%;
+  position: relative;
   display: flex;
   justify-content: ${({ justifyContent }) =>
     justifyContent ? justifyContent : "space-between"};
   align-items: ${({ alignItems }) => (alignItems ? alignItems : "center")};
   margin: ${({ margin }) => margin || undefined};
+`;
+
+export const ChartRow = styled(Row)`
+  flex: 1;
+  min-height: 10rem;
 `;
 
 export const H6 = styled.h6`
@@ -66,15 +63,6 @@ export const H6 = styled.h6`
 export const H7 = styled.h6`
   font-size: 1.6rem;
   color: #243746;
-`;
-
-export const ChartsDummy = styled.div`
-  height: 28rem;
-  min-height: 28rem;
-  width: 100%;
-  margin-bottom: 3.2rem;
-  display: flex;
-  flex-direction: column;
 `;
 
 export const P = styled.p`
@@ -120,4 +108,7 @@ export const Button = styled.button`
   border-radius: 3rem;
   border: none;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.5;
 `;

@@ -10,10 +10,19 @@ body {
   height: 100%;
 }
 
-a, p, span, h1, h2, h3, h4, h5, h6 {
+a, p, span, h1, h2, h3, h4, h5, h6, button {
   margin: 0;
   padding: 0;
   font-family: 'OpenSans';
+  color: #243746;
+}
+
+a, p, span {
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
 }
 
 .leaflet-control-attribution {
@@ -41,6 +50,11 @@ a, p, span, h1, h2, h3, h4, h5, h6 {
   line-height: 4rem !important;
 }
 
+
+/* react-transition-group classes */
+.fade-in {
+  opacity: 0
+}
 .fade-in-exit-done {
   opacity: 0;
 }
@@ -50,17 +64,18 @@ a, p, span, h1, h2, h3, h4, h5, h6 {
 .fade-in-appear {
   opacity: 0
 }
+
 .fade-in-enter {
   opacity: 0;
 }
 .fade-in-enter-active {
   opacity: 1;
-  transition: opacity 200ms;
+  transition: opacity 350ms;
 }
 .fade-in-exit {
   opacity: 1;
 }
 .fade-in-exit-active {
   opacity: 0;
-  transition: opacity 200ms;
+  transition: opacity 350ms;
 }

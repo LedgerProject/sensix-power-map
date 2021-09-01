@@ -1,6 +1,5 @@
+import { LatLngLiteral } from "leaflet";
+
 export interface ICell {
-  coordinates: {
-    lat: number;
-    lng: number;
-  };
+  coordinates: LatLngLiteral;
 }

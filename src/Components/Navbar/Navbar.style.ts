@@ -19,10 +19,13 @@ export const Spacer = styled.div`
 
 export const H5 = styled.h5`
   font-size: 2.4rem;
+  color: #7e8d90;
+  font-weight: 400;
 `;
 
-export const H7 = styled.h6`
+export const Link = styled.a`
   font-size: 1.4rem;
+  font-weight: bold;
   margin-right: 7.3rem;
 `;
 
