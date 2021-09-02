@@ -2,7 +2,7 @@
 
 ### Sensix PowerMap 
 
-# <img height='60px' src='https://github.com/LedgerProject/sensix-power-map/blob/main/src/Components/Icons/logo.svg' />
+# <img height='60px' src='https://github.com/LedgerProject/sensix-power-map/blob/main/src/components/Icons/logo.svg' />
 
 {Desc}
 
