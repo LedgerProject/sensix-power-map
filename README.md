@@ -1,5 +1,5 @@
-## Sensix PowerMap
-
+### <img height='60px' src='https://github.com/LedgerProject/sensix-power-map/blob/main/src/Components/Icons/logo.svg' />
+## Sensix PowerMap 
 Graphical interface for monitoring power usages metrics across the world
 
 ## Run this app locally
