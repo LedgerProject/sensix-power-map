@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { ReactComponent as CloseIcon } from "../Icons/close.svg";
+import { ReactComponent as CloseIcon } from "components/Icons/close.svg";
+import { Typography } from "components/Typography";
 
 interface MarginProps {
   margin?: string;
@@ -19,6 +20,7 @@ export const Column = styled.div<MarginProps>`
 `;
 
 export const Container = styled.div<MarginProps>`
+  background: ${({ theme }) => theme.overlay.background};
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -26,12 +28,11 @@ export const Container = styled.div<MarginProps>`
   top: 10%;
   bottom: 15%;
   width: 48.8rem;
-  background: white;
   z-index: 999999;
   padding: 40px;
   border-radius: 1rem;
   overflow-y: auto;
-  box-shadow: 0 4px 16px 0 rgba(126, 141, 144, 0.3);
+  box-shadow: ${({ theme }) => theme.overlay.shadow};
 
   &::-webkit-scrollbar {
     display: none;
@@ -71,19 +72,18 @@ export const ChartRow = styled(Row)`
   margin: ${({ margin }) => margin};
 `;
 
-export const H6 = styled.h6<MarginProps>`
+export const H6 = styled(Typography.H6)<MarginProps>`
   font-size: 1.8rem;
-  color: #243746;
+  color: ${({ theme }) => theme.p};
   margin: ${({ margin }) => margin};
 `;
 
-export const H7 = styled.h6`
+export const H7 = styled(Typography.H6)`
   font-size: 1.6rem;
-  color: #243746;
+  color: ${({ theme }) => theme.p};
 `;
 
-export const P = styled.p`
-  color: #243746;
+export const P = styled(Typography.P)`
   font-size: 1.6rem;
   line-height: 1.5rem;
 `;
@@ -92,25 +92,23 @@ export const BreakLine = styled.div`
   width: 100%;
   height: 0.2rem;
   min-height: 0.2rem;
-  background: #e8efec;
   margin-top: 2.4rem;
   margin-bottom: 3.2rem;
 `;
 
-export const H4 = styled.h4`
-  color: #243746;
+export const H4 = styled(Typography.H4)`
   font-size: 2.4rem;
 `;
 
-export const Span = styled.span`
+export const Span = styled(Typography.Span)`
   font-size: 1.2rem;
   line-height: 1.6rem;
-  color: #243746;
   margin-bottom: 2.4rem;
+  color: ${({ theme }) => theme.p};
 `;
 
 export const Link = styled.a`
-  color: #00ce7c !important; //leaflet overrides this
+  color: ${({ theme }) => theme.link} !important; //leaflet overrides this
   font-size: 1.6rem;
   font-weight: bold;
   text-decoration: none;
@@ -121,8 +119,9 @@ export const Button = styled.button`
   margin-top: auto;
   margin-left: auto;
   padding: 1.2rem 2.4rem;
-  box-shadow: 0 5px 20px 0 rgba(36, 55, 70, 0.1);
-  background-color: #fff;
+  box-shadow: ${({ theme }) => theme.button.secondary.shadow};
+  background-color: ${({ theme }) => theme.button.secondary.background};
+  color: ${({ theme }) => theme.button.secondary.color};
   border-radius: 3rem;
   border: none;
   cursor: pointer;

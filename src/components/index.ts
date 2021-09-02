@@ -4,3 +4,4 @@ export { Legend } from "./Legend";
 export { Map } from "./Map";
 export { Navbar } from "./Navbar";
 export { Overlay } from "./Overlay";
+export { Typography } from "./Typography";

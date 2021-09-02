@@ -36,4 +36,5 @@ export const Colors = {
   royalBlue: "#325168",
   orange: "#ff8e00",
   brown: "#a25504",
+  dark: "#17232c",
 };

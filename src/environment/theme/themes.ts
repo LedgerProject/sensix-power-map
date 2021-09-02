@@ -11,7 +11,9 @@ const lightTheme = {
   a: Colors.green,
   icon: Colors.bluishGrey,
   span: Colors.bluishGrey,
+  link: Colors.bluishGrey,
   background: Colors.ice,
+  breakline: Colors.ice3,
   badge: {
     background: Colors.paleRed200,
     color: Colors.white,
@@ -45,6 +47,10 @@ const lightTheme = {
     },
     disabled: Colors.paleAqua,
   },
+  overlay: {
+    background: Colors.white,
+    shadow: "0 4px 16px 0 rgba(126, 141, 144, 0.3)",
+  },
 };
 
 const darkTheme: ThemeStyle = {
@@ -56,9 +62,11 @@ const darkTheme: ThemeStyle = {
   h6: Colors.bluishGrey,
   p: Colors.white,
   a: Colors.green,
+  link: Colors.paleAqua,
   icon: Colors.paleAqua,
   span: Colors.bluishGrey,
   background: Colors.indigo700,
+  breakline: Colors.paleGrey,
   badge: {
     background: Colors.paleRed200,
     color: Colors.white,
@@ -91,6 +99,10 @@ const darkTheme: ThemeStyle = {
       shadow: "0 5px 20px 0 rgba(36, 55, 70, 0.1)",
     },
     disabled: Colors.alto,
+  },
+  overlay: {
+    background: Colors.paleGrey,
+    shadow: `0 10px 20px 0 ${Colors.dark}`,
   },
 };
 

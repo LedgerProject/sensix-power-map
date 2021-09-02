@@ -52,9 +52,7 @@ a {
 
 
 /* react-transition-group classes */
-.fade-in {
-  opacity: 0
-}
+
 .fade-in-exit-done {
   opacity: 0;
 }

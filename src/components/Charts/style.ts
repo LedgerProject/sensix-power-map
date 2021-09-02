@@ -14,4 +14,10 @@ export const BarContainer = styled.div`
   left: -2rem; // nivo doesn't support specific left/right padding for components, this will do;
   right: -2rem; // nivo doesn't support specific left/right padding for components, this will do;
   bottom: 0;
+  svg {
+    text {
+      fill: ${({ theme }) =>
+        theme.p} !important; //no other way to do it - the color from nivo is assigned inline;
+    }
+  }
 `;
