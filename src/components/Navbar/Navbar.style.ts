@@ -19,14 +19,14 @@ export const Container = styled.div`
   align-items: center;
   height: 6rem;
   padding: 0 4rem;
-  box-shadow: 0px 5px 20px 5px rgb(182 235 255 / 40%);
+  box-shadow: ${({ theme }) => theme.navbar.shadow};
   z-index: 99999;
 `;
 
 export const Spacer = styled.div`
   height: 4rem;
   width: 0.1rem;
-  background-color: #d8d8d8;
+  background-color: ${Colors.bluishGrey};
   border-radius: 0.5px;
   margin: 0 3rem;
 `;

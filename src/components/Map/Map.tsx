@@ -23,7 +23,7 @@ const bounds: LatLngBoundsLiteral = [
 ];
 
 export function Map({ setCell }: Props) {
-  const [theme, _] = useActiveTheme();
+  const [theme] = useActiveTheme();
 
   return (
     <MapContainer
@@ -32,7 +32,7 @@ export function Map({ setCell }: Props) {
         left: 0,
         right: 0,
         bottom: 0,
-        top: "65px",
+        top: "6rem",
       }}
       center={center}
       zoom={8}

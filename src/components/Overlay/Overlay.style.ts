@@ -26,7 +26,7 @@ export const Container = styled.div<MarginProps>`
   position: fixed;
   right: 4rem;
   top: 10%;
-  bottom: 15%;
+  bottom: 21%;
   width: 48.8rem;
   z-index: 999999;
   padding: 40px;
@@ -78,9 +78,10 @@ export const H6 = styled(Typography.H6)<MarginProps>`
   margin: ${({ margin }) => margin};
 `;
 
-export const H7 = styled(Typography.H6)`
+export const H7 = styled(Typography.H6)<MarginProps>`
   font-size: 1.6rem;
   color: ${({ theme }) => theme.p};
+  margin: ${({ margin }) => margin};
 `;
 
 export const P = styled(Typography.P)`
@@ -92,12 +93,8 @@ export const BreakLine = styled.div`
   width: 100%;
   height: 0.2rem;
   min-height: 0.2rem;
-  margin-top: 2.4rem;
-  margin-bottom: 3.2rem;
-`;
-
-export const H4 = styled(Typography.H4)`
-  font-size: 2.4rem;
+  margin: 1.6rem 0;
+  background-color: ${({ theme }) => theme.breakline};
 `;
 
 export const Span = styled(Typography.Span)`
@@ -105,13 +102,6 @@ export const Span = styled(Typography.Span)`
   line-height: 1.6rem;
   margin-bottom: 2.4rem;
   color: ${({ theme }) => theme.p};
-`;
-
-export const Link = styled.a`
-  color: ${({ theme }) => theme.link} !important; //leaflet overrides this
-  font-size: 1.6rem;
-  font-weight: bold;
-  text-decoration: none;
 `;
 
 export const Button = styled.button`

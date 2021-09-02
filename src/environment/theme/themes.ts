@@ -14,6 +14,9 @@ const lightTheme = {
   link: Colors.bluishGrey,
   background: Colors.ice,
   breakline: Colors.ice3,
+  navbar: {
+    shadow: "none",
+  },
   badge: {
     background: Colors.paleRed200,
     color: Colors.white,
@@ -66,7 +69,10 @@ const darkTheme: ThemeStyle = {
   icon: Colors.paleAqua,
   span: Colors.bluishGrey,
   background: Colors.indigo700,
-  breakline: Colors.paleGrey,
+  breakline: Colors.mediumGray,
+  navbar: {
+    shadow: "0 5px 10px 0 rgba(126, 141, 144, 0.1)",
+  },
   badge: {
     background: Colors.paleRed200,
     color: Colors.white,

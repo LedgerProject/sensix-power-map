@@ -10,7 +10,6 @@ export const GlobalStyle = createGlobalStyle<any>`
 
     html {
         font-size: 62.5%;
-
     }
 
     h1 {

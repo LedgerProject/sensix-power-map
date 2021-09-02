@@ -1,8 +1,9 @@
 import React, { SetStateAction } from "react";
-import { ICell } from "types";
+import { CSSTransition } from "react-transition-group";
 
 import { Colors } from "environment";
-import { CSSTransition } from "react-transition-group";
+import { ICell } from "types";
+import { Link } from "components";
 
 import {
   Container,
@@ -13,9 +14,7 @@ import {
   H7,
   Row,
   BreakLine,
-  H4,
   Span,
-  Link,
   Button,
   ChartsWrapper,
   Column,
@@ -81,9 +80,9 @@ export function Overlay({ hidden = false, cell, setCell }: Props) {
           <H7>past 48h</H7>
         </Row>
         <BreakLine />
-        <Row margin={"0 0 1.6rem 0"} justifyContent="flex-start">
-          <H4>Medium Risk</H4>
-          <H6 margin="0 0 0 1.5rem">(Average quality)</H6>
+        <Row margin={"0 0 0.8rem 0"} justifyContent="flex-start">
+          <H6>Medium Risk</H6>
+          <H7 margin="0 0 0 1.5rem">(Average quality)</H7>
         </Row>
         <Span>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -91,7 +90,7 @@ export function Overlay({ hidden = false, cell, setCell }: Props) {
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </Span>
-        <Link href="#">Read more</Link>
+        <Link to="#">Read more</Link>
         <Row margin="auto 0 0 0">
           <Button>SHARE</Button>
         </Row>
