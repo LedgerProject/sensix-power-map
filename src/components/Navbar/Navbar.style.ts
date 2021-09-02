@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Colors } from "environment";
 
 export const Container = styled.div`
   display: flex;
@@ -27,6 +28,15 @@ export const Link = styled.a`
   font-size: 1.4rem;
   font-weight: bold;
   margin-right: 7.3rem;
+  color: ${({ theme }) => theme.p};
+  position: relative;
+
+  &:after {
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    color: ${Colors.green};
+  }
 `;
 
 export const Right = styled.div`

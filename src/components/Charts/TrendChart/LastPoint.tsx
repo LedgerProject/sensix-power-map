@@ -1,11 +1,12 @@
 import { Point } from "@nivo/line";
+import { Colors } from "environment";
 import React from "react";
 import styled from "styled-components/macro";
 
 const Circle = styled.div<Point>`
-  background-color: "white";
+  background-color: ${({ theme }) => Colors.white};
   border-radius: 50%;
-  border: 0.4rem solid ${({ color }) => color};
+  border: ${({ color }) => `0.3rem solid ${color}`};
   height: 100%;
   width: 100%;
 `;
@@ -23,10 +24,10 @@ export function LastPoint({ points }: Props) {
       {Object.values(shownPoints).map((point) => (
         <foreignObject
           key={point.id}
-          height="1.5rem"
-          width="1.5rem"
-          x={`calc(${point.x}px - 0.75rem)`}
-          y={`calc(${point.y}px - 0.75rem)`}
+          height={"1rem"}
+          width={"1rem"}
+          x={`calc(${point.x}px - 0.5rem)`}
+          y={`calc(${point.y}px - 0.5rem)`}
         >
           <Circle {...point} />
         </foreignObject>

@@ -10,7 +10,7 @@ export function Navbar() {
       <Spacer />
       <H5>PowerMap</H5>
       <Right>
-        <Link href="#">SHARE</Link>
+        <Link href="#">SIGN UP</Link>
         <Link href="#">LOGIN</Link>
       </Right>
     </Container>

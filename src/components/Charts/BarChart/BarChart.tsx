@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { ResponsiveBar, BarDatum } from "@nivo/bar";
-import { Container } from "../style";
+import { BarContainer } from "../style";
 
 interface DataPoint {
   x: number;
@@ -32,7 +32,7 @@ export function BarChart({ data, colors }: Props) {
   }, [data, colors]);
 
   return (
-    <Container>
+    <BarContainer>
       <ResponsiveBar
         animate={false}
         groupMode="grouped"
@@ -47,9 +47,9 @@ export function BarChart({ data, colors }: Props) {
           tickPadding: 5,
           tickRotation: 0,
         }}
-        margin={{ top: 30, bottom: 20 }}
-        padding={0.6}
-        innerPadding={0.1}
+        margin={{ top: 5, bottom: 20 }}
+        padding={0.5}
+        innerPadding={2}
         axisLeft={null}
         axisTop={null}
         axisRight={null}
@@ -60,6 +60,6 @@ export function BarChart({ data, colors }: Props) {
         labelTextColor={{ from: "color", modifiers: [["darker", 1.6]] }}
         borderRadius={4}
       />
-    </Container>
+    </BarContainer>
   );
 }

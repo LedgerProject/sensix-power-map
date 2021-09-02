@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as CloseIcon } from "../Icons/close.svg";
 
-interface ContainerProps {
+interface MarginProps {
   margin?: string;
 }
 
@@ -11,13 +11,20 @@ interface FlexProps {
   flex?: string;
 }
 
-export const Container = styled.div<ContainerProps>`
+export const Column = styled.div<MarginProps>`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: ${({ margin }) => margin};
+`;
+
+export const Container = styled.div<MarginProps>`
   display: flex;
   flex-direction: column;
   position: fixed;
   right: 4rem;
-  top: 13%;
-  bottom: 22%;
+  top: 10%;
+  bottom: 15%;
   width: 48.8rem;
   background: white;
   z-index: 999999;
@@ -40,7 +47,13 @@ export const CloseButton = styled(CloseIcon)`
   }
 `;
 
-export const Row = styled.div<FlexProps & ContainerProps>`
+export const ChartsWrapper = styled.div`
+  min-height: 24rem;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Row = styled.div<FlexProps & MarginProps>`
   width: 100%;
   position: relative;
   display: flex;
@@ -52,12 +65,16 @@ export const Row = styled.div<FlexProps & ContainerProps>`
 
 export const ChartRow = styled(Row)`
   flex: 1;
-  min-height: 10rem;
+  min-height: 5rem;
+  display: flex;
+  justify-content: flex-end;
+  margin: ${({ margin }) => margin};
 `;
 
-export const H6 = styled.h6`
+export const H6 = styled.h6<MarginProps>`
   font-size: 1.8rem;
   color: #243746;
+  margin: ${({ margin }) => margin};
 `;
 
 export const H7 = styled.h6`
@@ -68,6 +85,7 @@ export const H7 = styled.h6`
 export const P = styled.p`
   color: #243746;
   font-size: 1.6rem;
+  line-height: 1.5rem;
 `;
 
 export const BreakLine = styled.div`

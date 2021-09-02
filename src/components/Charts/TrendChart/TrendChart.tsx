@@ -2,7 +2,7 @@
 import { linearGradientDef } from "@nivo/core";
 import { ResponsiveLine, Serie } from "@nivo/line";
 import React, { useEffect, useState } from "react";
-import { Container } from "../style";
+import { TrendContainer } from "../style";
 
 import { LastPoint } from "./LastPoint";
 
@@ -47,7 +47,7 @@ export function TrendChart({
   }, [data, datasets]);
 
   return (
-    <Container>
+    <TrendContainer>
       <ResponsiveLine
         animate={false}
         areaOpacity={areaOpacity}
@@ -83,6 +83,6 @@ export function TrendChart({
         lineWidth={lineWidth}
         margin={{ top: 20, bottom: 20, right: 10 }}
       />
-    </Container>
+    </TrendContainer>
   );
 }

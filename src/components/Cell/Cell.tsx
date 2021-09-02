@@ -28,7 +28,7 @@ export function Cell({ cell, setCell }: Props) {
           fillColor: cell.color || Colors.alto,
           stroke: false,
           fill: true,
-          fillOpacity: 0.9,
+          fillOpacity: 0.7,
           interactive: true,
         }}
         bounds={[
