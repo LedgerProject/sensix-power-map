@@ -53,27 +53,33 @@ a {
 
 /* react-transition-group classes */
 
-.fade-in-exit-done {
+.fade-in {
   opacity: 0;
+  visibility: hidden;
 }
-.fade-in-enter-done {
-  opacity: 1;
-}
-.fade-in-appear {
-  opacity: 0
-}
-
 .fade-in-enter {
   opacity: 0;
+  visibility: hidden;
 }
 .fade-in-enter-active {
   opacity: 1;
-  transition: opacity 350ms;
+  visibility: visible;
+  transition: opacity 350ms, visibility 350ms;
 }
 .fade-in-exit {
   opacity: 1;
+  visibility: visible;
 }
 .fade-in-exit-active {
   opacity: 0;
-  transition: opacity 350ms;
+  visibility: hidden;
+  transition: opacity 350ms, visibility 350ms;
+}
+.fade-in-exit-done {
+  opacity: 0;
+  visibility: hidden;
+}
+.fade-in-enter-done {
+  opacity: 1;
+  visibility: visible;
 }
