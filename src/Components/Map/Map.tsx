@@ -1,7 +1,7 @@
 import React, { SetStateAction } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { LatLngLiteral, LatLngBoundsLiteral } from "leaflet";
-import { ICell } from "src/types";
+import { ICell } from "types";
 
 import { Cell } from "../Cell/Cell";
 

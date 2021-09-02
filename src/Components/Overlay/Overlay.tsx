@@ -1,5 +1,5 @@
 import React, { SetStateAction } from "react";
-import { ICell } from "src/types";
+import { ICell } from "types";
 import { CSSTransition } from "react-transition-group";
 
 import {

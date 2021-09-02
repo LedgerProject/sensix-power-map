@@ -1,7 +1,7 @@
 import React, { SetStateAction } from "react";
 
 import { Rectangle, useMap } from "react-leaflet";
-import { ICell } from "src/types";
+import { ICell } from "types";
 
 interface Props {
   cell: ICell;

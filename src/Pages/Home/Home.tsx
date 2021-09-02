@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Legend } from "src/Components/Legend/Legend";
-import { Map } from "src/Components/Map/Map";
-import { Overlay } from "src/Components/Overlay/Overlay";
-import { ICell } from "src/types";
+import { Legend } from "components/Legend/Legend";
+import { Map } from "components/Map/Map";
+import { Overlay } from "components/Overlay/Overlay";
+import { ICell } from "types";
 
 export function Home() {
   const [cell, setCell] = useState<ICell | undefined>(undefined);
