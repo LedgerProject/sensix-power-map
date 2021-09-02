@@ -1,4 +1,5 @@
 import React, { SetStateAction } from "react";
+import { Colors } from "environment";
 
 import { Rectangle, useMap } from "react-leaflet";
 import { ICell } from "types";
@@ -24,10 +25,10 @@ export function Cell({ cell, setCell }: Props) {
         }}
         key={`${cell.coordinates.lat}-${cell.coordinates.lng}`}
         pathOptions={{
-          fillColor: "red",
+          fillColor: cell.color || Colors.alto,
           stroke: false,
           fill: true,
-          fillOpacity: 0.6,
+          fillOpacity: 0.7,
           interactive: true,
         }}
         bounds={[

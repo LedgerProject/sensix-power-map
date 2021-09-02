@@ -1,19 +1,12 @@
 import React, { SetStateAction } from "react";
+
 import { MapContainer, TileLayer } from "react-leaflet";
 import { LatLngLiteral, LatLngBoundsLiteral } from "leaflet";
 import { ICell } from "types";
 
-import { Cell } from "../Cell/Cell";
+import { Cell } from "components";
 
-const mockData = [
-  { coordinates: { lat: 43, lng: 25 } },
-  { coordinates: { lat: 44, lng: 25 } },
-  { coordinates: { lat: 46, lng: 25 } },
-  { coordinates: { lat: 45, lng: 27 } },
-  { coordinates: { lat: 51, lng: 25 } },
-  { coordinates: { lat: 42, lng: 24 } },
-];
-
+import { mockData } from "./mock";
 interface Props {
   setCell: React.Dispatch<SetStateAction<ICell | undefined>>;
 }

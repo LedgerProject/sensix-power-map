@@ -1,5 +1,7 @@
 import React, { SetStateAction } from "react";
 import { ICell } from "types";
+
+import { Colors } from "environment";
 import { CSSTransition } from "react-transition-group";
 
 import {
@@ -41,13 +43,16 @@ export function Overlay({ hidden = false, cell, setCell }: Props) {
           <CloseButton onClick={() => setCell(undefined)} />
           <H6>Harmonic Distortions chart</H6>
           <ChartRow flex="1">
-            <TrendChart color="#ff9700" data={chartData.trend[0]} />
+            <TrendChart color={Colors.orange} data={chartData.trend[0]} />
           </ChartRow>
           <ChartRow flex="1">
-            <TrendChart color="#ff9700" data={chartData.trend[1]} />
+            <TrendChart color={Colors.orange} data={chartData.trend[1]} />
           </ChartRow>
           <ChartRow style={{ flex: 2 }}>
-            <BarChart colors={["#ff8e00", "#d8d8d8"]} data={chartData.bar} />
+            <BarChart
+              colors={[Colors.orange, Colors.alto]}
+              data={chartData.bar}
+            />
           </ChartRow>
           <Row>
             <P>Country</P>
