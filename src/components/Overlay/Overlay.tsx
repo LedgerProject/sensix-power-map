@@ -1,10 +1,9 @@
-import React, { SetStateAction } from "react";
+import React from "react";
 import { CSSTransition } from "react-transition-group";
 
 import { Colors } from "environment";
-import { ICell } from "types";
 import { Link } from "components";
-
+import { useActiveCell } from "hooks";
 import {
   Container,
   CloseButton,
@@ -23,23 +22,19 @@ import { TrendChart, BarChart } from "components/Charts";
 
 import { chartData } from "./mock";
 
-interface Props {
-  setCell: React.Dispatch<SetStateAction<ICell | undefined>>;
-  hidden?: boolean;
-  cell?: ICell;
-}
+export function Overlay() {
+  const [activeCell, setActiveCell] = useActiveCell();
 
-export function Overlay({ hidden = false, cell, setCell }: Props) {
   return (
     <CSSTransition
       className="fade-in"
-      in={!hidden}
+      in={!!activeCell}
       timeout={350}
       classNames="fade-in"
     >
       <Container>
         {/** absolutely pos */}
-        <CloseButton onClick={() => setCell(undefined)} />
+        <CloseButton onClick={() => setActiveCell(undefined)} />
         <H6>Harmonic Distortions chart</H6>
         <ChartsWrapper>
           <ChartRow margin="2rem 0 0 0">

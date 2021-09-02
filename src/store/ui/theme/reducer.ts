@@ -1,5 +1,6 @@
 import initialState from "./initialState";
 import { ActionType, Actions, State } from "./types";
+import { produce } from "immer";
 
 const themeReducer = function (
   state: State = initialState,
@@ -7,7 +8,9 @@ const themeReducer = function (
 ): State {
   switch (action.type) {
     case ActionType.TOGGLE_THEME: {
-      return { ...state, active: action.payload.theme };
+      return produce(state, (draft) => {
+        draft.active = action.payload.theme;
+      });
     }
 
     default: {

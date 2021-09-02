@@ -1,16 +1,9 @@
-import React, { SetStateAction } from "react";
+import React, { useEffect, useRef } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { LatLngLiteral, LatLngBoundsLiteral } from "leaflet";
 
-import { ICell } from "types";
-
 import { Cell } from "components";
-import { useActiveTheme } from "hooks";
-
-import { mockData } from "./mock";
-interface Props {
-  setCell: React.Dispatch<SetStateAction<ICell | undefined>>;
-}
+import { useActiveTheme, useCells, useCellIds } from "hooks";
 
 const center: LatLngLiteral = {
   lat: 46.6427,
@@ -22,8 +15,20 @@ const bounds: LatLngBoundsLiteral = [
   [90, 90],
 ];
 
-export function Map({ setCell }: Props) {
+export function Map() {
+  const hasFetchedData = useRef<boolean>(false);
+
+  const [, getCells] = useCells();
+  const ids = useCellIds();
+
   const [theme] = useActiveTheme();
+
+  useEffect(() => {
+    if (!hasFetchedData.current) {
+      hasFetchedData.current = true;
+      getCells();
+    }
+  }, [getCells]);
 
   return (
     <MapContainer
@@ -53,12 +58,8 @@ export function Map({ setCell }: Props) {
         />
       )}
       {/** Needs to be inside MapContainer !! */}
-      {mockData.map((item) => (
-        <Cell
-          setCell={setCell}
-          key={`${item.coordinates.lat}-${item.coordinates.lng}`}
-          cell={item}
-        />
+      {ids.map((id) => (
+        <Cell id={id} key={`cell-${id}`} />
       ))}
     </MapContainer>
   );

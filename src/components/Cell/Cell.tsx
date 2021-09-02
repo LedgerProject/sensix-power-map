@@ -1,21 +1,27 @@
-import React, { SetStateAction } from "react";
+import React from "react";
 import { Colors } from "environment";
 
+import { useCell, useActiveCell } from "hooks";
 import { Rectangle, useMap } from "react-leaflet";
-import { ICell } from "types";
 
 interface Props {
-  cell: ICell;
-  setCell: React.Dispatch<SetStateAction<ICell | undefined>>;
+  id: number;
 }
 
-export function Cell({ cell, setCell }: Props) {
+export function Cell({ id }: Props) {
+  const [, setActiveCell] = useActiveCell();
+  const [cell] = useCell(id);
+
   const map = useMap();
 
   function onClickHandler() {
-    setCell(cell);
-    map.setView(cell.coordinates);
+    if (cell) {
+      setActiveCell(cell.id);
+      map.setView(cell.coordinates);
+    }
   }
+
+  if (!cell) return null;
 
   return (
     <div style={{ zIndex: 99999999 }}>
