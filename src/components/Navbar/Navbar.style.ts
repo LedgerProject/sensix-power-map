@@ -1,7 +1,20 @@
 import styled from "styled-components";
 import { Colors } from "environment";
+import { ReactComponent as LogoIcon } from "../Icons/logo.svg";
+
+interface LinkProps {
+  margin?: string;
+  active?: boolean;
+}
+
+export const H7 = styled.h6`
+  font-size: 1.4rem;
+  margin-right: 7.2rem;
+  margin-left: 0.8rem;
+`;
 
 export const Container = styled.div`
+  background: ${({ theme }) => theme.background};
   display: flex;
   align-items: center;
   height: 6rem;
@@ -24,18 +37,26 @@ export const H5 = styled.h5`
   font-weight: 400;
 `;
 
-export const Link = styled.a`
+export const Link = styled.a<LinkProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   font-size: 1.4rem;
   font-weight: bold;
-  margin-right: 7.3rem;
   color: ${({ theme }) => theme.p};
   position: relative;
+  width: 10.5rem;
+  margin: ${({ margin }) => margin};
 
-  &:after {
+  ::before {
+    content: ${({ active }) => (active ? "''" : null)};
     position: absolute;
-    height: 2px;
+    height: 0.4rem;
     width: 100%;
-    color: ${Colors.green};
+    background-color: ${Colors.green};
+    bottom: 0px;
+    border-radius: 0.2rem;
   }
 `;
 
@@ -43,4 +64,16 @@ export const Right = styled.div`
   margin-left: auto;
   display: flex;
   align-items: center;
+  height: 100%;
+  svg {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+`;
+
+export const Logo = styled(LogoIcon)`
+  path {
+    fill: ${({ theme }) => theme.icon};
+  }
 `;

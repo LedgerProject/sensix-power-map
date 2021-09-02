@@ -9,6 +9,7 @@ const lightTheme = {
   h6: Colors.indigo,
   p: Colors.indigo,
   a: Colors.green,
+  icon: Colors.bluishGrey,
   span: Colors.bluishGrey,
   background: Colors.ice,
   badge: {
@@ -55,6 +56,7 @@ const darkTheme: ThemeStyle = {
   h6: Colors.bluishGrey,
   p: Colors.white,
   a: Colors.green,
+  icon: Colors.paleAqua,
   span: Colors.bluishGrey,
   background: Colors.indigo700,
   badge: {

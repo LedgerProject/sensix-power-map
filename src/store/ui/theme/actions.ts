@@ -14,5 +14,5 @@ export const toggleTheme = (): Thunk => async (dispatch, getState) => {
   const { ui } = getState();
   const theme = ui.theme.active === "light" ? "dark" : "light";
   dispatch(toggleThemeAction(theme));
-  localStorage.set("powermap-theme", theme);
+  localStorage.setItem("powermap-theme", theme);
 };
