@@ -27,6 +27,7 @@ export function Map({ setCell }: Props) {
 
   return (
     <MapContainer
+      key={`map-${theme}-theme`}
       style={{
         position: "absolute",
         left: 0,
@@ -51,6 +52,7 @@ export function Map({ setCell }: Props) {
           attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
         />
       )}
+      {/** Needs to be inside MapContainer !! */}
       {mockData.map((item) => (
         <Cell
           setCell={setCell}
