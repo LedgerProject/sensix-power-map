@@ -2,6 +2,7 @@ export * from "./context";
 export * from "./utils";
 
 export { useActiveTheme } from "./ui/useActiveTheme";
+export { useStatusColors } from "./ui/useStatusColors";
 
 export { useActiveCell } from "./data/cells/useActiveCell";
 export { useCell } from "./data/cells/useCell";

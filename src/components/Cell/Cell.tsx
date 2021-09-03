@@ -1,7 +1,7 @@
 import React from "react";
 import { Colors } from "environment";
 
-import { useCell, useActiveCell } from "hooks";
+import { useCell, useActiveCell, useStatusColors } from "hooks";
 import { Rectangle, useMap } from "react-leaflet";
 
 interface Props {
@@ -9,6 +9,8 @@ interface Props {
 }
 
 export function Cell({ id }: Props) {
+  const mapStatusToColor = useStatusColors();
+
   const [, setActiveCell] = useActiveCell();
   const [cell] = useCell(id);
 
@@ -31,7 +33,7 @@ export function Cell({ id }: Props) {
         }}
         key={`${cell.coordinates.lat}-${cell.coordinates.lng}`}
         pathOptions={{
-          fillColor: cell.color || Colors.alto,
+          fillColor: mapStatusToColor(cell.status) || Colors.alto,
           stroke: false,
           fill: true,
           fillOpacity: 0.7,
