@@ -68,7 +68,7 @@ const darkTheme: ThemeStyle = {
   link: Colors.paleAqua,
   icon: Colors.paleAqua,
   span: Colors.bluishGrey,
-  background: Colors.indigo700,
+  background: Colors.indigo,
   breakline: Colors.mediumGray,
   navbar: {
     shadow: "0 5px 10px 0 rgba(126, 141, 144, 0.1)",
