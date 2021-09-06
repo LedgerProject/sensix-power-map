@@ -25,8 +25,8 @@ export const Container = styled.div<MarginProps>`
   flex-direction: column;
   position: fixed;
   right: 4rem;
-  top: 10%;
-  bottom: 21%;
+  top: 10rem;
+  bottom: max(15%, 10rem);
   width: 48.8rem;
   z-index: 999999;
   padding: 40px;

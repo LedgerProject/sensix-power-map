@@ -25,6 +25,10 @@ a {
   text-decoration: none;
 }
 
+.leaflet-control {
+  margin: 0 !important;
+}
+
 .leaflet-control-attribution {
   display: none;
 }

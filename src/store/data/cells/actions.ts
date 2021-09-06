@@ -21,7 +21,7 @@ const setActiveCellAction: ActionCreator<SetActiveCellAction> = (
 });
 
 export const setActiveCell =
-  (id: number | undefined): Thunk =>
+  (id: number | null): Thunk =>
   async (dispatch, getState) => {
     dispatch(setActiveCellAction(id));
   };

@@ -28,13 +28,13 @@ export function Overlay() {
   return (
     <CSSTransition
       className="fade-in"
-      in={!!activeCell}
+      in={activeCell !== null}
       timeout={350}
       classNames="fade-in"
     >
       <Container>
         {/** absolutely pos */}
-        <CloseButton onClick={() => setActiveCell(undefined)} />
+        <CloseButton onClick={() => setActiveCell(null)} />
         <H6>Harmonic Distortions chart</H6>
         <ChartsWrapper>
           <ChartRow margin="2rem 0 0 0">
