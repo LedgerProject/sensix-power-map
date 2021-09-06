@@ -2,7 +2,8 @@ import { createSelector } from "reselect";
 import { State } from "./types";
 
 export const selectCellById = createSelector(
-  (state: State, id: number) => state.cells.byId[id],
+  (state: State, id: number | undefined) =>
+    id ? state.cells.byId[id] : undefined,
   (cell) => cell
 );
 

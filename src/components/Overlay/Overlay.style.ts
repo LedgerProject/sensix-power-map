@@ -6,6 +6,10 @@ interface MarginProps {
   margin?: string;
 }
 
+interface ContainerProps {
+  badgeColor?: string;
+}
+
 interface FlexProps {
   justifyContent?: string;
   alignItems?: string;
@@ -19,7 +23,7 @@ export const Column = styled.div<MarginProps>`
   margin: ${({ margin }) => margin};
 `;
 
-export const Container = styled.div<MarginProps>`
+export const Container = styled.div<MarginProps & ContainerProps>`
   background: ${({ theme }) => theme.overlay.background};
   display: flex;
   flex-direction: column;
@@ -36,6 +40,18 @@ export const Container = styled.div<MarginProps>`
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  &::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 3rem 3rem 0 0;
+    border-color: ${({ color }) => color} transparent transparent transparent;
+    top: 0;
+    left: 0;
+    position: absolute;
   }
 `;
 

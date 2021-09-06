@@ -2,7 +2,7 @@ import { CellStatus } from "types";
 import { Colors } from "environment";
 
 export function useStatusColors() {
-  function mapStatusToColors(status: CellStatus): string {
+  function mapStatusToColors(status?: CellStatus): string {
     switch (status) {
       case CellStatus.Critical: {
         return Colors.paleRed;

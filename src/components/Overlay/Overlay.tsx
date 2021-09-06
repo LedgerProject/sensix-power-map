@@ -3,7 +3,7 @@ import { CSSTransition } from "react-transition-group";
 
 import { Colors } from "environment";
 import { Link } from "components";
-import { useActiveCell } from "hooks";
+import { useActiveCell, useCell, useStatusColors } from "hooks";
 import {
   Container,
   CloseButton,
@@ -23,18 +23,21 @@ import { TrendChart, BarChart } from "components/Charts";
 import { chartData } from "./mock";
 
 export function Overlay() {
-  const [activeCell, setActiveCell] = useActiveCell();
+  const mapStatusToColors = useStatusColors();
+
+  const [activeCellId, setActiveCellId] = useActiveCell();
+
+  const cell = useCell(activeCellId ?? undefined)[0];
 
   return (
     <CSSTransition
-      className="fade-in"
-      in={activeCell !== null}
+      in={activeCellId !== null}
       timeout={350}
       classNames="fade-in"
     >
-      <Container>
+      <Container color={mapStatusToColors(cell?.status)}>
         {/** absolutely pos */}
-        <CloseButton onClick={() => setActiveCell(null)} />
+        <CloseButton onClick={() => setActiveCellId(null)} />
         <H6>Harmonic Distortions chart</H6>
         <ChartsWrapper>
           <ChartRow margin="2rem 0 0 0">
