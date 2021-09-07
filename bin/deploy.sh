@@ -19,28 +19,6 @@ SHOULD_CHECK=${SHOULD_CHECK:=0}
 FORCE_DEPLOY=${FORCE_DEPLOY:=0}
 BUILD_VERSION_FILE_PATH=${ROOT_PATH}/build/static/build_version.txt
 
-function should_deploy()
-{
-    if [[ ${FORCE_DEPLOY} -ne 0 ]]; then
-        return
-    fi
-
-    cd ${ROOT_PATH}
-
-    if [[ -f "${BUILD_VERSION_FILE_PATH}" ]]; then
-
-        PREVIOUS_GIT_SHA="$(cat ${BUILD_VERSION_FILE_PATH})"
-        SHOULD_DEPLOY="$(git diff ${PREVIOUS_GIT_SHA} HEAD ${ROOT_PATH} | wc -l)"
-
-        if [[ ${SHOULD_DEPLOY} -eq 0 ]]; then
-            echo "Not deploying! No changes detected in web package!"
-            exit 0
-        fi
-    else
-        echo "Missing previous build. No build version file available."
-    fi
-}
-
 function check_error()
 {
     # Function. Parameter 1 is the return code
@@ -192,7 +170,6 @@ echo "---"
 echo ""
 
 fetch
-should_deploy
 
 echo "Start deploying!"
 
