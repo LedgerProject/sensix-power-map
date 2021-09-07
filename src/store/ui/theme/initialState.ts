@@ -14,6 +14,7 @@ if (theme) {
 const initialState: State = {
   active,
   zoom: null,
+  center: null,
 };
 
 export default initialState;

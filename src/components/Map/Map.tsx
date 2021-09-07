@@ -3,10 +3,16 @@ import { MapContainer } from "react-leaflet";
 import { LatLngLiteral, LatLngBoundsLiteral } from "leaflet";
 
 import { Cell } from "components";
-import { useActiveTheme, useCells, useCellIds, useZoom } from "hooks";
+import {
+  useActiveTheme,
+  useCells,
+  useCellIds,
+  useZoom,
+  useCenter,
+} from "hooks";
 import { TileLayer } from "components";
 
-const center: LatLngLiteral = {
+const defaultCenter: LatLngLiteral = {
   lat: 46.6427,
   lng: 25.5887,
 };
@@ -19,8 +25,10 @@ const bounds: LatLngBoundsLiteral = [
 export function Map() {
   const hasFetchedData = useRef<boolean>(false);
 
-  const [, getCells] = useCells();
   const zoom = useZoom()[0];
+  const center = useCenter()[0];
+  console.log(center);
+  const [, getCells] = useCells();
   const ids = useCellIds();
 
   const [theme] = useActiveTheme();
@@ -42,7 +50,7 @@ export function Map() {
         bottom: 0,
         top: "6rem",
       }}
-      center={center}
+      center={center ?? defaultCenter}
       zoom={zoom ?? 8}
       maxZoom={18}
       bounds={bounds}

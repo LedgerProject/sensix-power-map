@@ -1,13 +1,19 @@
 import { TileLayer as MapLayer, useMap } from "react-leaflet";
-import { useActiveTheme, useZoom } from "hooks";
+import { useActiveTheme, useZoom, useCenter } from "hooks";
 
 export function TileLayer() {
   const [, setZoom] = useZoom();
+  const [, setCenter] = useCenter();
 
   const map = useMap();
 
   map.addEventListener("zoom", (e) => {
     setZoom(e.target._zoom);
+    setCenter(e.target._renderer._center);
+  });
+
+  map.addEventListener("dragend", (e) => {
+    setCenter(e.target._renderer._center);
   });
 
   const [theme] = useActiveTheme();

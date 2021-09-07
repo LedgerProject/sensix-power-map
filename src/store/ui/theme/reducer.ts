@@ -19,6 +19,12 @@ const themeReducer = function (
       });
     }
 
+    case ActionType.SET_CENTER: {
+      return produce(state, (draft) => {
+        draft.center = action.payload.center;
+      });
+    }
+
     default: {
       return state;
     }

@@ -16,3 +16,8 @@ export const selectZoom = createSelector(
   (state: State) => state.zoom,
   (zoom) => zoom
 );
+
+export const selectCenter = createSelector(
+  (state: State) => state.center,
+  (center) => center
+);

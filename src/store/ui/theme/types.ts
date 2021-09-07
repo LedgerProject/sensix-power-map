@@ -1,16 +1,19 @@
 import { Action } from "redux";
 import { themes } from "environment/theme/themes";
+import { LatLngLiteral } from "leaflet";
 
 export type Theme = keyof typeof themes;
 
 export interface State {
   active: Theme;
   zoom: number | null;
+  center: LatLngLiteral | null;
 }
 
 export enum ActionType {
   TOGGLE_THEME = "ui/theme/TOGGLE_THEME",
   SET_ZOOM = "ui/theme/SET_ZOOM",
+  SET_CENTER = "ui/theme/SET_CENTER",
 }
 
 export interface ToggleThemeAction extends Action {
@@ -27,4 +30,11 @@ export interface SetZoomAction extends Action {
   };
 }
 
-export type Actions = ToggleThemeAction | SetZoomAction;
+export interface SetCenterAction extends Action {
+  type: ActionType.SET_CENTER;
+  payload: {
+    center: LatLngLiteral;
+  };
+}
+
+export type Actions = ToggleThemeAction | SetZoomAction | SetCenterAction;
