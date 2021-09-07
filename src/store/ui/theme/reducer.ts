@@ -13,6 +13,12 @@ const themeReducer = function (
       });
     }
 
+    case ActionType.SET_ZOOM: {
+      return produce(state, (draft) => {
+        draft.zoom = action.payload.zoom;
+      });
+    }
+
     default: {
       return state;
     }

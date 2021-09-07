@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer } from "react-leaflet";
 import { LatLngLiteral, LatLngBoundsLiteral } from "leaflet";
 
 import { Cell } from "components";
-import { useActiveTheme, useCells, useCellIds } from "hooks";
+import { useActiveTheme, useCells, useCellIds, useZoom } from "hooks";
+import { TileLayer } from "components";
 
 const center: LatLngLiteral = {
   lat: 46.6427,
@@ -19,6 +20,7 @@ export function Map() {
   const hasFetchedData = useRef<boolean>(false);
 
   const [, getCells] = useCells();
+  const zoom = useZoom()[0];
   const ids = useCellIds();
 
   const [theme] = useActiveTheme();
@@ -41,22 +43,11 @@ export function Map() {
         top: "6rem",
       }}
       center={center}
-      zoom={8}
+      zoom={zoom ?? 8}
       maxZoom={18}
       bounds={bounds}
     >
-      {theme === "light" ? (
-        <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-          subdomains="abcd"
-        />
-      ) : (
-        <TileLayer
-          url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
-          attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-        />
-      )}
+      <TileLayer /> {/**The actual map that is rendered */}
       {/** Needs to be inside MapContainer !! */}
       {ids.map((id) => (
         <Cell id={id} key={`cell-${id}`} />

@@ -11,3 +11,8 @@ export const selectTheme = createSelector(
   (state: State) => state.active,
   (theme) => themes[theme]
 );
+
+export const selectZoom = createSelector(
+  (state: State) => state.zoom,
+  (zoom) => zoom
+);

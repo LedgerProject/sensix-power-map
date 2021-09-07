@@ -3,6 +3,7 @@ export * from "./utils";
 
 export { useActiveTheme } from "./ui/useActiveTheme";
 export { useStatusColors } from "./ui/useStatusColors";
+export { useZoom } from "./ui/useZoom";
 
 export { useActiveCell } from "./data/cells/useActiveCell";
 export { useCell } from "./data/cells/useCell";

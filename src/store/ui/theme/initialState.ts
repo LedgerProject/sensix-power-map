@@ -13,6 +13,7 @@ if (theme) {
 
 const initialState: State = {
   active,
+  zoom: null,
 };
 
 export default initialState;

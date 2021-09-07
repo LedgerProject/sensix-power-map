@@ -5,10 +5,12 @@ export type Theme = keyof typeof themes;
 
 export interface State {
   active: Theme;
+  zoom: number | null;
 }
 
 export enum ActionType {
   TOGGLE_THEME = "ui/theme/TOGGLE_THEME",
+  SET_ZOOM = "ui/theme/SET_ZOOM",
 }
 
 export interface ToggleThemeAction extends Action {
@@ -18,4 +20,11 @@ export interface ToggleThemeAction extends Action {
   };
 }
 
-export type Actions = ToggleThemeAction;
+export interface SetZoomAction extends Action {
+  type: ActionType.SET_ZOOM;
+  payload: {
+    zoom: number;
+  };
+}
+
+export type Actions = ToggleThemeAction | SetZoomAction;
