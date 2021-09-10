@@ -33,9 +33,7 @@ export const Container = styled.div<MarginProps & ContainerProps>`
   bottom: max(15%, 10rem);
   width: 48.8rem;
   z-index: 999999;
-  padding: 40px;
   border-radius: 1rem;
-  overflow-y: auto;
   box-shadow: ${({ theme }) => theme.overlay.shadow};
 
   &::-webkit-scrollbar {
@@ -52,6 +50,21 @@ export const Container = styled.div<MarginProps & ContainerProps>`
     top: 0;
     left: 0;
     position: absolute;
+  }
+`;
+
+export const Content = styled.div`
+  position: relative;
+  background: inherit;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  padding: 4rem;
+
+  ::-webkit-scrollbar {
+    display: none;
   }
 `;
 
