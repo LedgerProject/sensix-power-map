@@ -24,36 +24,33 @@ export const Column = styled.div<MarginProps>`
 `;
 
 export const Container = styled.div<MarginProps & ContainerProps>`
-  background: ${({ theme }) => theme.overlay.background};
   display: flex;
   flex-direction: column;
   position: fixed;
   right: 4rem;
   top: 10rem;
-  bottom: max(15%, 10rem);
+  bottom: max(25%, 15rem);
   width: 48.8rem;
   z-index: 999999;
   border-radius: 1rem;
   box-shadow: ${({ theme }) => theme.overlay.shadow};
+  background: ${({
+    theme,
+    color,
+  }) => `linear-gradient(to top left, transparent 50%, ${color} 0) top
+      left/40px 40px no-repeat,
+    ${theme.overlay.background};`};
+  color: white;
+  border-radius: 12px;
+  overflow: hidden;
 
   &::-webkit-scrollbar {
     display: none;
   }
-
-  &::after {
-    content: "";
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 3rem 3rem 0 0;
-    border-color: ${({ color }) => color} transparent transparent transparent;
-    top: 0;
-    left: 0;
-    position: absolute;
-  }
 `;
 
 export const Content = styled.div`
+  border-radius: 1rem;
   position: relative;
   background: inherit;
   display: flex;
@@ -61,6 +58,7 @@ export const Content = styled.div`
   overflow-y: auto;
   width: 100%;
   height: 100%;
+  border-radius: 1rem;
   padding: 4rem;
 
   ::-webkit-scrollbar {
