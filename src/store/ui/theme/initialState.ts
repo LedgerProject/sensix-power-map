@@ -12,7 +12,7 @@ if (theme) {
 }
 
 const initialState: State = {
-  active,
+  active: active || "light",
   zoom: null,
   center: null,
 };
