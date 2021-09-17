@@ -35,6 +35,7 @@ export function Overlay() {
       in={activeCellId !== null}
       timeout={350}
       classNames="fade-in"
+      className="fade-in"
     >
       <Container color={mapStatusToColors(cell?.status)}>
         <Content>
