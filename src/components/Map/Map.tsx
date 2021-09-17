@@ -27,7 +27,6 @@ export function Map() {
 
   const zoom = useZoom()[0];
   const center = useCenter()[0];
-  console.log(center);
   const [, getCells] = useCells();
   const ids = useCellIds();
 
