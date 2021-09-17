@@ -1,5 +1,5 @@
 import React from "react";
-import { CSSTransition } from "react-transition-group";
+import { animated, useSpring } from "react-spring";
 
 import { Colors } from "environment";
 import { Link } from "components";
@@ -23,19 +23,26 @@ import { TrendChart, BarChart } from "components/Charts";
 
 import { chartData } from "./mock";
 
-export function Overlay() {
+export function Overlay(): JSX.Element | null {
   const mapStatusToColors = useStatusColors();
 
   const [activeCellId, setActiveCellId] = useActiveCell();
 
   const cell = useCell(activeCellId ?? undefined)[0];
 
+  const fadeStyles = useSpring({
+    from: { opacity: 0, display: "block" },
+    to: {
+      opacity: cell ? 1 : 0,
+      display: cell ? "block" : "none",
+    },
+  });
+
   return (
-    <CSSTransition
-      in={activeCellId !== null}
-      timeout={350}
-      classNames="fade-in"
-      className="fade-in"
+    <animated.div
+      style={{
+        ...fadeStyles,
+      }}
     >
       <Container color={mapStatusToColors(cell?.status)}>
         <Content>
@@ -97,6 +104,6 @@ export function Overlay() {
           </Row>
         </Content>
       </Container>
-    </CSSTransition>
+    </animated.div>
   );
 }
