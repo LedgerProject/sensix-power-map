@@ -105,4 +105,33 @@ export const GlobalStyle = createGlobalStyle<any>`
         font-family: 'Open Sans', sans-serif;
         font-size: 1.6rem;
     }
+
+    .leaflet-control {
+        margin: 0 !important;
+    }
+
+    .leaflet-control-attribution {
+        display: none;
+    }
+    .leaflet-control-container {
+        position: absolute;
+        left: 4rem;
+        top: 4rem;
+    }
+
+    .leaflet-control-zoom-in {
+        width: 4rem !important;
+        height: 4rem !important;
+        line-height: 4rem !important;
+    }
+
+    .leaflet-bar {
+        margin: 0;
+    }
+
+    .leaflet-control-zoom-out {
+        width: 4rem !important;
+        height: 4rem !important;
+        line-height: 4rem !important;
+    }
 `;

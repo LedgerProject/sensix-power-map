@@ -14,6 +14,9 @@ const lightTheme = {
   link: Colors.bluishGrey,
   background: Colors.ice,
   breakline: Colors.ice3,
+  zoom: {
+    background: Colors.white,
+  },
   navbar: {
     shadow: "none",
   },
@@ -70,6 +73,9 @@ const darkTheme: ThemeStyle = {
   span: Colors.bluishGrey,
   background: Colors.indigo,
   breakline: Colors.mediumGray,
+  zoom: {
+    background: Colors.paleGrey,
+  },
   navbar: {
     shadow: "0 5px 10px 0 rgba(126, 141, 144, 0.1)",
   },
