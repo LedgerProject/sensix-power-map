@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as CloseIcon } from "components/Icons/close.svg";
 import { Typography } from "components/Typography";
+import { animated } from "react-spring";
 
 interface MarginProps {
   margin?: string;
@@ -23,7 +24,7 @@ export const Column = styled.div<MarginProps>`
   margin: ${({ margin }) => margin};
 `;
 
-export const Container = styled.div<MarginProps & ContainerProps>`
+export const Container = styled(animated.div)<MarginProps & ContainerProps>`
   display: flex;
   flex-direction: column;
   position: fixed;
