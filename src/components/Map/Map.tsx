@@ -48,6 +48,7 @@ export function Map() {
         right: 0,
         bottom: 0,
         top: "6rem",
+        zIndex: 998,
       }}
       center={center ?? defaultCenter}
       zoom={zoom ?? 8}

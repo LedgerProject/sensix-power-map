@@ -22,6 +22,7 @@ export const Container = styled.div`
   padding: 0 4rem;
   box-shadow: ${({ theme }) => theme.navbar.shadow};
   z-index: 99999;
+  box-shadow: ${({ theme }) => theme.navbar.shadow};
 `;
 
 export const Spacer = styled.div`
