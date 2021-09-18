@@ -60,6 +60,8 @@ export function TrendChart({
         enableGridX={false}
         enableGridY={false}
         enablePoints={false}
+        useMesh={true}
+        enableCrosshair={false}
         defs={[
           linearGradientDef("gradient", [
             { offset: 0, color: "inherit" },

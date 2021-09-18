@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Tooltip } from "./Tooltip";
 
 import { ResponsiveBar, BarDatum } from "@nivo/bar";
 import { BarContainer } from "../style";
@@ -59,6 +60,7 @@ export function BarChart({ data, colors }: Props) {
         borderColor={{ from: "color", modifiers: [["brighter", 0.5]] }}
         labelTextColor={{ from: "color", modifiers: [["darker", 1.6]] }}
         borderRadius={4}
+        tooltip={(point) => <Tooltip {...point} />}
       />
     </BarContainer>
   );
