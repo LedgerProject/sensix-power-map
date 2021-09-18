@@ -41,7 +41,7 @@ export function Overlay(): JSX.Element | null {
     <Container
       style={{
         ...fadeStyles,
-        visibility: fadeStyles.opacity.interpolate((o) =>
+        visibility: fadeStyles.opacity.to((o) =>
           o !== 0 ? "visible" : "hidden"
         ),
       }}
