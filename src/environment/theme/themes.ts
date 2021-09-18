@@ -15,7 +15,7 @@ const lightTheme = {
   background: Colors.ice,
   breakline: Colors.ice3,
   zoom: {
-    border: Colors.white,
+    border: Colors.black,
     background: Colors.white,
   },
   navbar: {

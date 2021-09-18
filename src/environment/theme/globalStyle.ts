@@ -136,7 +136,7 @@ export const GlobalStyle = createGlobalStyle<any>`
         height: 4rem !important;
         line-height: 4rem !important;
         background-color: ${({ theme }) => theme.zoom.background} !important;
-        color: ${({ theme }) => theme.span} !important;
+        color: ${({ theme }) => theme.h3} !important;
         font-weight: normal !important;
     }
 `;
