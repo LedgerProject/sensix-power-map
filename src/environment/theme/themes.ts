@@ -15,6 +15,7 @@ const lightTheme = {
   background: Colors.ice,
   breakline: Colors.ice3,
   zoom: {
+    border: Colors.white,
     background: Colors.white,
   },
   navbar: {
@@ -74,6 +75,7 @@ const darkTheme: ThemeStyle = {
   background: Colors.indigo,
   breakline: Colors.mediumGray,
   zoom: {
+    border: Colors.bluishGrey,
     background: Colors.paleGrey,
   },
   navbar: {

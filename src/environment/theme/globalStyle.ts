@@ -119,19 +119,24 @@ export const GlobalStyle = createGlobalStyle<any>`
         top: 4rem;
     }
 
-    .leaflet-control-zoom-in {
-        width: 4rem !important;
-        height: 4rem !important;
-        line-height: 4rem !important;
-    }
 
     .leaflet-bar {
         margin: 0;
+        background: ${({ theme }) => theme.zoom.background};
+        border: 2px solid ${({ theme }) => theme.zoom.background} !important;
     }
 
-    .leaflet-control-zoom-out {
+    .leaflet-control-zoom-in {
+        border-bottom: ${({ theme }) =>
+          `1px solid ${theme.zoom.border}`} !important;
+    }
+
+    .leaflet-control-zoom-out, .leaflet-control-zoom-in {
         width: 4rem !important;
         height: 4rem !important;
         line-height: 4rem !important;
+        background-color: ${({ theme }) => theme.zoom.background} !important;
+        color: ${({ theme }) => theme.span} !important;
+        font-weight: normal !important;
     }
 `;

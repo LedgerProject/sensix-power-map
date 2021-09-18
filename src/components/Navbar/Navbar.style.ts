@@ -11,6 +11,7 @@ export const H7 = styled.h6`
   font-size: 1.4rem;
   margin-right: 7.2rem;
   margin-left: 0.8rem;
+  color: ${({ theme }) => theme.h3};
 `;
 
 export const Container = styled.div`
@@ -33,7 +34,7 @@ export const Spacer = styled.div`
 
 export const H5 = styled.h5`
   font-size: 2.4rem;
-  color: #7e8d90;
+  color: ${({ theme }) => theme.h3};
   font-weight: 400;
 `;
 
