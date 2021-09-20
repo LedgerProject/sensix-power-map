@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSpring } from "react-spring";
 
 import { Colors } from "environment";
@@ -30,12 +30,29 @@ export function Overlay(): JSX.Element | null {
 
   const cell = useCell(activeCellId ?? undefined)[0];
 
+  const [overlay, setOverlay] = useState<boolean>(false);
+
   const fadeStyles = useSpring({
     from: { opacity: 0 },
     to: {
-      opacity: cell ? 1 : 0,
+      opacity: overlay ? 1 : 0,
     },
   });
+
+  useEffect(() => {
+    if (!overlay) {
+      const t = setTimeout(() => {
+        setActiveCellId(null);
+      }, 250);
+      return () => clearTimeout(t);
+    }
+  }, [overlay, setActiveCellId]);
+
+  useEffect(() => {
+    if (activeCellId) {
+      setOverlay(true);
+    }
+  }, [activeCellId]);
 
   return (
     <Container
@@ -49,7 +66,7 @@ export function Overlay(): JSX.Element | null {
     >
       <Content>
         {/** absolutely pos */}
-        <CloseButton onClick={() => setActiveCellId(null)} />
+        <CloseButton onClick={() => setOverlay(false)} />
         <H6>Harmonic Distortions chart</H6>
         <ChartsWrapper>
           <ChartRow margin="2rem 0 0 0">

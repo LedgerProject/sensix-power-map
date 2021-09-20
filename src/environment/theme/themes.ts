@@ -14,6 +14,7 @@ const lightTheme = {
   link: Colors.bluishGrey,
   background: Colors.ice,
   breakline: Colors.ice3,
+  lastPoint: Colors.white,
   zoom: {
     border: Colors.black,
     background: Colors.white,
@@ -74,6 +75,7 @@ const darkTheme: ThemeStyle = {
   span: Colors.bluishGrey,
   background: Colors.indigo,
   breakline: Colors.mediumGray,
+  lastPoint: Colors.indigo,
   zoom: {
     border: Colors.bluishGrey,
     background: Colors.paleGrey,

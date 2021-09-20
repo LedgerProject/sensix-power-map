@@ -1,10 +1,9 @@
 import { Point } from "@nivo/line";
-import { Colors } from "environment";
 import React from "react";
 import styled from "styled-components/macro";
 
 const Circle = styled.div<Point>`
-  background-color: ${({ theme }) => Colors.white};
+  background-color: ${({ theme }) => theme.lastPoint};
   border-radius: 50%;
   border: ${({ color }) => `0.3rem solid ${color}`};
   height: 100%;
