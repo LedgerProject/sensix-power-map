@@ -3,6 +3,8 @@ import { linearGradientDef } from "@nivo/core";
 import { ResponsiveLine, Serie } from "@nivo/line";
 import React, { useEffect, useState } from "react";
 import { TrendContainer } from "../style";
+import { Tooltip } from "./Tooltip";
+import moment from "moment";
 
 import { LastPoint } from "./LastPoint";
 
@@ -36,13 +38,24 @@ export function TrendChart({
       setSeries(
         datasets.map((dataset, index) => ({
           id: `dataset-${index}`,
-          data: dataset.map((d, i) => ({ x: i, y: d.y })),
+          data: dataset.map((d, i) => ({
+            x: moment(new Date(new Date().getTime() + i * 3600)).format("LTS"),
+            y: d.y,
+          })),
         }))
       );
     }
 
     if (data) {
-      setSeries([{ id: "data", data: data.map((d) => ({ x: d.x, y: d.y })) }]);
+      setSeries([
+        {
+          id: "data",
+          data: data.map((d, i) => ({
+            x: moment(new Date(new Date().getTime() + i * 3600)).format("LTS"),
+            y: d.y,
+          })),
+        },
+      ]);
     }
   }, [data, datasets]);
 
@@ -83,6 +96,7 @@ export function TrendChart({
           LastPoint,
         ]}
         lineWidth={lineWidth}
+        tooltip={(p) => <Tooltip {...p} />}
         margin={{ top: 10, bottom: 10, right: 10 }}
       />
     </TrendContainer>
