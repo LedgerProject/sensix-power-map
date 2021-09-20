@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Tooltip } from "./Tooltip";
 
 import { ResponsiveBar, BarDatum } from "@nivo/bar";
 import { BarContainer } from "../style";
+import { Tooltip } from "./Tooltip";
 
 interface DataPoint {
   x: number;
@@ -23,10 +23,10 @@ export function BarChart({ data, colors }: Props) {
       setSeries(
         data.map((d) => ({
           id: d.x,
-          y1: d.y1,
-          y1Color: colors[0],
-          y2: d.y2,
-          y2Color: colors[1],
+          THD: d.y1,
+          THDColor: colors[0],
+          THV: d.y2,
+          THVColor: colors[1],
         }))
       );
     }
@@ -39,7 +39,7 @@ export function BarChart({ data, colors }: Props) {
         groupMode="grouped"
         data={series}
         indexBy="id"
-        keys={["y1", "y2"]}
+        keys={["THD", "THV"]}
         enableGridY={false}
         //@ts-ignore
         colors={({ id, data }) => data[`${id}Color`]}
@@ -60,6 +60,7 @@ export function BarChart({ data, colors }: Props) {
         borderColor={{ from: "color", modifiers: [["brighter", 0.5]] }}
         labelTextColor={{ from: "color", modifiers: [["darker", 1.6]] }}
         borderRadius={4}
+        valueFormat={(d) => `${d}%`}
         tooltip={(point) => <Tooltip {...point} />}
       />
     </BarContainer>
