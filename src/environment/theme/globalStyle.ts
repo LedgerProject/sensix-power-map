@@ -123,7 +123,6 @@ export const GlobalStyle = createGlobalStyle<any>`
     .leaflet-bar {
         margin: 0;
         background: ${({ theme }) => theme.zoom.background};
-        border: 2px solid ${({ theme }) => theme.zoom.background} !important;
     }
 
     .leaflet-control-zoom-in {
