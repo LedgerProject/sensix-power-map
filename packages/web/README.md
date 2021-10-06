@@ -1,8 +1,7 @@
+Sensix PowerMap Frontend
+===
 
-
-### Sensix PowerMap
-
-![Sensix](https://github.com/LedgerProject/sensix-power-map/blob/main/src/components/Icons/logo.svg "Sensix")
+### Intro 
 
 This is the PowerMap interface to display anonymized and aggregated power quality metrics.
 
