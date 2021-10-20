@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@sensix-map/api": ["../../api"] 
+    },
     "target": "es5",
     "types" : ["node"],
     "lib": [
@@ -24,5 +27,5 @@
   },
   "baseUrl": "src",
   "include": ["src"],
-  "references": [{ "path": "../api" }, { "path": "../shared" }]
+  "references": [{ "path": "../api" }]
 }
