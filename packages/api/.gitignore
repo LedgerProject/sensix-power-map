@@ -1,0 +1,11 @@
+# node.js
+#
+dist/
+node_modules/
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+yarn-error.log
+tsconfig.tsbuildinfo
