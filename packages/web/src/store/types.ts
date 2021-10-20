@@ -1,4 +1,4 @@
-import { ApiFactory } from '../../../api/src';
+import { ApiFactory } from '@sensix-map/api';
 import { ThunkAction, ThunkDispatch as Dispatch } from 'redux-thunk';
 import { Actions as ThemeActions } from './ui/theme';
 import { Actions as CellActions } from './data/cells';

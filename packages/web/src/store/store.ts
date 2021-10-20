@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { ThunkDispatch } from './types';
-import { factory } from '@sensix/map-api';
+import { factory } from '@sensix-map/api';
 
 import thunk from 'redux-thunk';
 

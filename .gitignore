@@ -1,0 +1,23 @@
+# OSX
+#
+.DS_Store
+
+# IDEs
+#
+.vscode/
+.idea/
+.history/
+
+# node.js
+#
+dist/
+build/
+build_mirror/
+node_modules/
+npm-debug.log
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+yarn-error.log

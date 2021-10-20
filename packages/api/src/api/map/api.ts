@@ -1,4 +1,4 @@
-import { buildUrl } from 'utils';
+import { buildUrl } from '../../utils';
 import axios from 'axios';
 
 const endpoints = {

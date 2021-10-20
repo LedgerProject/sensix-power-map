@@ -24,5 +24,5 @@
   },
   "baseUrl": "src",
   "include": ["src"],
-		"references": [{ "path": "../api" }, { "path": "../shared" }]
+  "references": [{ "path": "../api" }, { "path": "../shared" }]
 }

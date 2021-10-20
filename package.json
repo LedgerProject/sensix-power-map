@@ -1,8 +1,8 @@
 {
-	"name": "sensix-powermap",
+	"name": "sensix-map",
 	"version": "1.0.0",
 	"description": "sensix-map monorepo",
-	"main": "index.js",
+	"private": true,
 	"workspaces": [
 		"packages/*"
 	],

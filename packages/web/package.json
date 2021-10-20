@@ -1,7 +1,9 @@
 {
-	"name": "sensix-power-map",
+	"name": "@sensix-map/web",
 	"version": "0.1.0",
 	"private": true,
+	"main": "index.ts",
+	"module": "index.ts",
 	"dependencies": {
 		"@nivo/bar": "^0.73.1",
 		"@nivo/core": "^0.73.0",
