@@ -23,6 +23,8 @@
 		"copy-webpack-plugin": "^9.0.1",
 		"immer": "^9.0.6",
 		"invariant": "^2.2.4",
+		"jwt-decode": "^3.1.2",
+		"latlon-geohash": "^2.0.0",
 		"leaflet": "^1.7.1",
 		"moment": "^2.29.1",
 		"prettier": "^2.4.1",
@@ -44,13 +46,23 @@
 		"web-vitals": "^1.0.1"
 	},
 	"scripts": {
-		"start": "react-scripts start",
+		"start": "PORT=8100 react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {
-		"extends": ["react-app", "react-app/jest"]
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
 	},
-	"browserslist": [">0.2%", "not dead", "not op_mini all"]
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not op_mini all"
+	],
+	"devDependencies": {
+		"@types/latlon-geohash": "^2.0.0"
+	}
 }

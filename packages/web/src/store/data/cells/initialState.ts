@@ -1,9 +1,10 @@
-import { State } from "./types";
+import { State } from './types';
 
 export const initialState: State = {
-  cells: {
-    byId: {},
-    ids: [],
-    active: null,
-  },
+	cells: {
+		overview: [],
+		byId: {},
+		ids: [],
+		active: null
+	}
 };

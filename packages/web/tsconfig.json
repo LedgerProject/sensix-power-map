@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "paths": {
-      "@sensix-map/api": ["../../api"] 
-    },
     "target": "es5",
-    "types" : ["node"],
+    "types": [
+      "node"
+    ],
     "lib": [
       "dom",
       "dom.iterable",
@@ -26,6 +25,12 @@
     "jsx": "react-jsx"
   },
   "baseUrl": "src",
-  "include": ["src"],
-  "references": [{ "path": "../api" }]
+  "include": [
+    "src"
+  ],
+  "references": [
+    {
+      "path": "../api"
+    }
+  ]
 }

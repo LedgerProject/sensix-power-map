@@ -1,8 +1,8 @@
-import { map } from './api/map';
+import { cells } from './api/cells';
 
 export const factory = () => ({
 	data: {
-		map: () => map(),
+		cells: () => cells(),
 	},
 });
 

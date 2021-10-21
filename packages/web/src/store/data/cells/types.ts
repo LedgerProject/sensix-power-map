@@ -1,29 +1,40 @@
+import { GetCellsOverviewData, CellData, CellOverviewData } from '@sensix-map/api';
 import { Action } from 'redux';
-import { ICell } from 'types';
 
 export enum ActionType {
 	GET_CELLS = 'data/cells/GET_CELLS',
+	GET_CELL = 'data/cells/GET_CELL',
 	SET_ACTIVE_CELL = 'data/cells/SET_ACTIVE_CELL'
 }
 
 export interface GetCellsAction extends Action {
 	type: ActionType.GET_CELLS;
-	payload: any;
+	payload: {
+		data: GetCellsOverviewData;
+	};
+}
+
+export interface GetCellAction extends Action {
+	type: ActionType.GET_CELL;
+	payload: {
+		data: CellData;
+	};
 }
 
 export interface SetActiveCellAction extends Action {
 	type: ActionType.SET_ACTIVE_CELL;
-	payload: number | null;
+	payload: string | null;
 }
 
 export interface State {
 	cells: {
+		overview: CellOverviewData[];
 		byId: {
-			[key: string]: ICell;
+			[key: string]: CellData;
 		};
-		ids: number[];
-		active: null | number;
+		ids: string[];
+		active: null | string;
 	};
 }
 
-export type Actions = GetCellsAction | SetActiveCellAction;
+export type Actions = GetCellsAction | GetCellAction | SetActiveCellAction;

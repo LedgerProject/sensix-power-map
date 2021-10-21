@@ -1,13 +1,14 @@
-import { selectCellById } from "store/data/cells";
-import { ICell } from "types";
-import { useSelector } from "hooks";
-export function useCell(
-  id: number | undefined
-): [ICell | undefined, () => void] {
-  const data = useSelector((state) => selectCellById(state.data.cells, id));
+import { selectCellById, getCell } from 'store/data/cells';
+import { useSelector, useDispatch } from 'hooks';
+import { CellData } from '@sensix-map/api';
 
-  function handler() {
-    return; // not implemented yet.
-  }
-  return [data, handler];
+export function useCell(id: string | undefined): [CellData | undefined, (id: string) => void] {
+	const dispatch = useDispatch();
+
+	const data = useSelector((state) => selectCellById(state.data.cells, id));
+
+	function handler(id: string) {
+		dispatch(getCell(id));
+	}
+	return [data, handler];
 }

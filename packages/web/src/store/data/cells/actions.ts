@@ -1,24 +1,36 @@
+import { GetCellsOverviewData, GetCellData } from '@sensix-map/api';
 import { Thunk } from 'store';
-import { SetActiveCellAction } from '.';
-import { ActionType, GetCellsAction } from './types';
+import { ActionType, GetCellsAction, GetCellAction, SetActiveCellAction } from './types';
 
-const getCellsAction = (data: any): GetCellsAction => ({
+const getCellsAction = (data: GetCellsOverviewData): GetCellsAction => ({
 	type: ActionType.GET_CELLS,
-	payload: data
+	payload: { data }
 });
 
 export const getCells = (): Thunk => async (dispatch, _, context) => {
-	const data = await context.api.data.map().getRects();
+	const data = await context.api.data.cells().getCells();
 	dispatch(getCellsAction(data));
 };
 
-const setActiveCellAction = (cell: number | null): SetActiveCellAction => ({
+const getCellAction = (data: GetCellData): GetCellAction => ({
+	type: ActionType.GET_CELL,
+	payload: { data }
+});
+
+export const getCell =
+	(input: string): Thunk =>
+	async (dispatch, _, context) => {
+		const data = await context.api.data.cells().getCell(input);
+		dispatch(getCellAction(data));
+	};
+
+const setActiveCellAction = (cell: string | null): SetActiveCellAction => ({
 	type: ActionType.SET_ACTIVE_CELL,
 	payload: cell
 });
 
 export const setActiveCell =
-	(id: number | null): Thunk =>
+	(id: string | null): Thunk =>
 	async (dispatch) => {
 		dispatch(setActiveCellAction(id));
 	};

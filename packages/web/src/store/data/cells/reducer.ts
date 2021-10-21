@@ -1,20 +1,30 @@
 import produce from 'immer';
 import { initialState } from './initialState';
-import { ActionType, Actions, State } from './types';
+import { ActionType, Actions as CellActions, State } from './types';
 
-import { mockData as results } from './mock';
-
-function cellsReducer(state: State = initialState, action: Actions): State {
+function cellsReducer(state: State = initialState, action: CellActions): State {
 	switch (action.type) {
 		case ActionType.GET_CELLS: {
-			const { data } = action.payload;
-			// mocked for now
+			const {
+				data: { results }
+			} = action.payload;
 			return produce(state, (draft) => {
-				console.log(data);
-				// results.forEach((d) => {
-				//   if (!draft.cells.byId[d.id]) draft.cells.byId[d.id] = d;
-				//   if (!draft.cells.ids.includes(d.id)) draft.cells.ids.push(d.id);
-				// });
+				results.forEach((d) => {
+					const ids = draft.cells.overview.map((d) => d.h);
+					if (!ids.includes(d.h)) {
+						draft.cells.overview.push(d);
+					}
+				});
+			});
+		}
+
+		case ActionType.GET_CELL: {
+			const { data } = action.payload;
+
+			return produce(state, (draft) => {
+				if (!draft.cells.byId[data.h]) {
+					draft.cells.byId[data.h] = data;
+				}
 			});
 		}
 

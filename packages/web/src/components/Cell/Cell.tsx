@@ -1,49 +1,58 @@
-import React from "react";
-import { Colors } from "environment";
+import React, { useEffect, useState } from 'react';
+import { Rectangle, useMap } from 'react-leaflet';
+import { LatLngLiteral } from 'leaflet';
+import Geohash from 'latlon-geohash';
+import { CellOverviewData } from '@sensix-map/api';
 
-import { useCell, useActiveCell, useStatusColors } from "hooks";
-import { Rectangle, useMap } from "react-leaflet";
+import { Colors } from 'environment';
+import { useActiveCell, useStatusColors } from 'hooks';
 
-interface Props {
-  id: number;
-}
+export function Cell({ h }: CellOverviewData) {
+	const mapStatusToColor = useStatusColors();
 
-export function Cell({ id }: Props) {
-  const mapStatusToColor = useStatusColors();
+	const [, setActiveCell] = useActiveCell();
 
-  const [, setActiveCell] = useActiveCell();
-  const [cell] = useCell(id);
+	const map = useMap();
 
-  const map = useMap();
+	const [bounds, setBounds] = useState<Geohash.Bounds>();
+	const [coords, setCoords] = useState<LatLngLiteral>();
 
-  function onClickHandler() {
-    if (cell) {
-      setActiveCell(cell.id);
-      map.setView(cell.coordinates);
-    }
-  }
+	useEffect(() => {
+		if (h) {
+			setBounds(Geohash.bounds(h));
+			const latLng = Geohash.decode(h);
+			setCoords({ lat: latLng.lat, lng: latLng.lon });
+		}
+	}, [h]);
 
-  if (!cell) return null;
+	function onClickHandler() {
+		if (h) {
+			setActiveCell(h);
+			coords && map.setView(coords);
+		}
+	}
 
-  return (
-    <div style={{ zIndex: 99999999 }}>
-      <Rectangle
-        eventHandlers={{
-          click: () => onClickHandler(),
-        }}
-        key={`${cell.coordinates.lat}-${cell.coordinates.lng}`}
-        pathOptions={{
-          fillColor: mapStatusToColor(cell.status) || Colors.alto,
-          stroke: false,
-          fill: true,
-          fillOpacity: 0.7,
-          interactive: true,
-        }}
-        bounds={[
-          [cell.coordinates.lat, cell.coordinates.lng],
-          [cell.coordinates.lat + 0.3, cell.coordinates.lng + 0.5],
-        ]}
-      />
-    </div>
-  );
+	if (!coords || !bounds) return <></>;
+
+	return (
+		<div style={{ zIndex: 99999999 }}>
+			<Rectangle
+				eventHandlers={{
+					click: () => onClickHandler()
+				}}
+				key={`${coords.lat}-${coords.lng}`}
+				pathOptions={{
+					fillColor: mapStatusToColor(Math.floor(Math.random() * 4)) || Colors.alto,
+					stroke: false,
+					fill: true,
+					fillOpacity: 0.7,
+					interactive: true
+				}}
+				bounds={[
+					[bounds.sw.lat, bounds.sw.lon],
+					[bounds.ne.lat, bounds.ne.lon]
+				]}
+			/>
+		</div>
+	);
 }
