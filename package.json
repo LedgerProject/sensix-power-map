@@ -1,30 +1,32 @@
 {
-	"name": "sensix-map",
-	"version": "1.0.0",
-	"description": "sensix-map monorepo",
-	"private": true,
-	"workspaces": [
-		"packages/*"
-	],
-	"scripts": {
-		"reset:yarn": "yarn cache clean",
-		"reset:dists": "rimraf packages/*/dist",
-		"reset:modules": "rimraf node_modules/ packages/*/node_modules",
-		"reset": "yarn reset:yarn && yarn reset:dists && yarn reset:modules && yarn",
-		"build:api": "cd packages/api && yarn build && cd ../../"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+ssh://git@bitbucket.org/sensix/sensix-map-frontend.git"
-	},
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://bitbucket.org/sensix/sensix-map-frontend/issues"
-	},
-	"homepage": "https://bitbucket.org/sensix/sensix-map-frontend#readme",
-	"dependencies": {
-		"prettier": "^2.4.1",
-		"rimraf": "^3.0.2"
-	}
+  "name": "sensix-map",
+  "version": "1.0.0",
+  "description": "sensix-map monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js",
+    "reset:yarn": "yarn cache clean",
+    "reset:dists": "rimraf packages/*/dist",
+    "reset:modules": "rimraf node_modules/ packages/*/node_modules",
+    "reset": "yarn reset:yarn && yarn reset:dists && yarn reset:modules && yarn"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/sensix/sensix-map-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/sensix/sensix-map-frontend/issues"
+  },
+  "homepage": "https://bitbucket.org/sensix/sensix-map-frontend#readme",
+  "dependencies": {
+    "prettier": "^2.4.1",
+    "rimraf": "^3.0.2"
+  }
 }
