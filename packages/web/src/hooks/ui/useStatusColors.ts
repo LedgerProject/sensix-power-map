@@ -1,4 +1,4 @@
-import { CellStatus } from 'types';
+import { CellStatus } from '@sensix-map/api';
 import { Colors } from 'environment';
 
 export function useStatusColors() {
