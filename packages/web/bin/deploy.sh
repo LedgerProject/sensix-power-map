@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Deploy script to fetch, clean, build and check app.sensix.io.
+# Deploy script to fetch, clean, build and check react app.
 #
 # Run this script from the `web` package, like this:
 #
@@ -10,13 +10,37 @@
 
 
 ROOT_PATH=${ROOT_PATH:=`pwd`}
-BUILD_PATH=${BUILD_PATH:=${ROOT_PATH}/build_mirror}  # Build folder path for Nginx.
+PACKAGE_PATH=${PACKAGE_PATH:=`pwd`}
+BUILD_PATH=${BUILD_PATH:=${PACKAGE_PATH}/build_mirror}  # Build folder path for Nginx.
 URL=${URL:=`localhost:8100`}  # Website URL.
 GIT_BRANCH=${GIT_BRANCH:=develop}
 GIT_SHOULD_FETCH=${GIT_SHOULD_FETCH:=0}
 SHOULD_CLEAN=${SHOULD_CLEAN:=0}
 SHOULD_CHECK=${SHOULD_CHECK:=0}
-BUILD_VERSION_FILE_PATH=${ROOT_PATH}/build/static/build_version.txt
+FORCE_DEPLOY=${FORCE_DEPLOY:=0}
+BUILD_VERSION_FILE_PATH=${PACKAGE_PATH}/build/static/build_version.txt
+
+function should_deploy()
+{
+    if [[ ${FORCE_DEPLOY} -ne 0 ]]; then
+        return
+    fi
+
+    cd ${PACKAGE_PATH}
+
+    if [[ -f "${BUILD_VERSION_FILE_PATH}" ]]; then
+
+        PREVIOUS_GIT_SHA="$(cat ${BUILD_VERSION_FILE_PATH})"
+        SHOULD_DEPLOY="$(git diff ${PREVIOUS_GIT_SHA} HEAD ${PACKAGE_PATH} | wc -l)"
+
+        if [[ ${SHOULD_DEPLOY} -eq 0 ]]; then
+            echo "Not deploying! No changes detected in web package!"
+            exit 0
+        fi
+    else
+        echo "Missing previous build. No build version file available."
+    fi
+}
 
 function check_error()
 {
@@ -31,7 +55,7 @@ function check_error()
 
 function fetch()
 {
-    cd ${ROOT_PATH}
+    cd ${PACKAGE_PATH}
 
     if [[ ${GIT_SHOULD_FETCH} -eq 1 ]]; then
         echo ""
@@ -53,16 +77,16 @@ function clean()
         echo "* Cleaning"
 
         echo "Delete build folders"
-        rm -rf ${ROOT_PATH}/build
+        rm -rf ${PACKAGE_PATH}/build
         echo "Delete .cache folders"
-        rm -rf ${ROOT_PATH}/.cache
+        rm -rf ${PACKAGE_PATH}/.cache
 
         echo "Delete node_modules folder"
         rm -rf ${ROOT_PATH}/node_modules
-        rm -rf ${ROOT_PATH}/node_modules
+        rm -rf ${PACKAGE_PATH}/node_modules
         echo "Delete yarn.lock file"
         rm ${ROOT_PATH}/yarn.lock
-        rm ${ROOT_PATH}/yarn.lock
+        rm ${PACKAGE_PATH}/yarn.lock
     fi
 }
 
@@ -71,11 +95,18 @@ function build()
     echo ""
     echo "* Building"
 
+    cd ../..
     yarn install
     check_error $? "Yarn install failed"
 
+    cd packages/api
+    yarn install
     yarn build
-    check_error $? "Yarn build failed"
+    check_error $? "Building api package failed"
+
+    cd ../web
+    yarn build
+    check_error $? "Building web package failed"
 
     echo "Write the git sha version"
     git rev-parse HEAD > ${BUILD_VERSION_FILE_PATH}
@@ -84,10 +115,10 @@ function build()
     rm -r ${BUILD_PATH}
 
     echo "Create build mirror folder for Nginx to serve from"
-    mv ${ROOT_PATH}/build ${BUILD_PATH}
+    mv ${PACKAGE_PATH}/build ${BUILD_PATH}
 
     echo "Copy back build folder to help speed the next build"
-    cp -r ${BUILD_PATH} ${ROOT_PATH}/build
+    cp -r ${BUILD_PATH} ${PACKAGE_PATH}/build
 }
 
 function check()
@@ -96,7 +127,9 @@ function check()
         echo ""
         echo "* Checking"
 
-        current_sha=$(wget -qO- ${URL}/static/build_version.txt)
+        version_url="${URL}/static/build_version.txt"
+        current_sha=$(wget -qO- ${version_url})
+        echo "Fetching current version from ${version_url}"
         check_error $? "No current build version registered."
 
         expected_sha=`git rev-parse HEAD`
@@ -157,17 +190,19 @@ done
 
 echo "* Environment vars:"
 echo ""
-echo "CLONE_PATH=${ROOT_PATH}"
+echo "CLONE_PATH=${PACKAGE_PATH}"
 echo "BUILD_PATH=${BUILD_PATH}"
 echo "URL=${URL}"
 echo "GIT_BRANCH=${GIT_BRANCH}"
 echo "GIT_SHOULD_FETCH=${GIT_SHOULD_FETCH}"
 echo "SHOULD_CLEAN=${SHOULD_CLEAN}"
 echo "SHOULD_CHECK=${SHOULD_CHECK}"
+echo "FORCE_DEPLOY=${FORCE_DEPLOY}"
 echo "---"
 echo ""
 
 fetch
+should_deploy
 
 echo "Start deploying!"
 
