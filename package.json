@@ -7,13 +7,11 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
     "reset:yarn": "yarn cache clean",
     "reset:dists": "rimraf packages/*/dist",
     "reset:modules": "rimraf node_modules/ packages/*/node_modules",
-    "reset": "yarn reset:yarn && yarn reset:dists && yarn reset:modules && yarn"
+    "reset": "yarn reset:yarn && yarn reset:dists && yarn reset:modules && yarn",
+    "build:api": "cd packages/api && yarn build && cd ../../"
   },
   "repository": {
     "type": "git",
