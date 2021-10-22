@@ -50,6 +50,7 @@ export function Overlay(): JSX.Element | null {
 		if (activeCellId) {
 			getCell(activeCellId);
 		}
+		// eslint-disable-next-line
 	}, [activeCellId]);
 
 	useEffect(() => {
@@ -74,7 +75,7 @@ export function Overlay(): JSX.Element | null {
 					{Object.keys(cell.data.metrics).map((o) => {
 						const key = o as 'THI' | 'THV';
 						return (
-							<ChartRow margin="2rem 0 0 0">
+							<ChartRow key={`trendchart-row-${cell.h}`} margin="2rem 0 0 0">
 								<TrendChart
 									color={Colors.orange}
 									data={cell.data.metrics[key].values}
