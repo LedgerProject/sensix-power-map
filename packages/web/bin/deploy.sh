@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Deploy script to fetch, clean, build and check app.sensix.io.
+# Deploy script to fetch, clean, build and check react app.
 #
 # Run this script from the `web` package, like this:
 #
@@ -127,8 +127,9 @@ function check()
         echo ""
         echo "* Checking"
 
-        current_sha=$(wget -qO- ${URL}/static/build_version.txt)
-        echo "Fetching current version from ${current_sha}"
+        version_url = ${URL}/static/build_version.txt
+        current_sha=$(wget -qO- ${version_url})
+        echo "Fetching current version from ${version_url}"
         check_error $? "No current build version registered."
 
         expected_sha=`git rev-parse HEAD`
@@ -145,7 +146,7 @@ function check()
 
 function usage()
 {
-    echo "Deploy script"
+    echo "Deploy script."
     echo ""
     echo "bin/deploy.sh"
     echo "    -h | --help"
