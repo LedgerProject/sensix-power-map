@@ -105,7 +105,6 @@ function build()
     check_error $? "Building api package failed"
 
     cd ../web
-    yarn rebuild node-sass
     yarn build
     check_error $? "Building web package failed"
 
@@ -129,6 +128,7 @@ function check()
         echo "* Checking"
 
         current_sha=$(wget -qO- ${URL}/static/build_version.txt)
+        echo "Fetching current version from ${current_sha}"
         check_error $? "No current build version registered."
 
         expected_sha=`git rev-parse HEAD`
