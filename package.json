@@ -9,7 +9,7 @@
 	"scripts": {
 		"reset:yarn": "yarn cache clean",
 		"reset:dists": "rimraf packages/*/dist",
-		"reset:modules": "rimraf node_modules/ yarn.lock packages/*/node_modules",
+		"reset:modules": "rimraf node_modules/ packages/*/node_modules",
 		"reset": "yarn reset:yarn && yarn reset:dists && yarn reset:modules && yarn",
 		"build:api": "cd packages/api && yarn build && cd ../../"
 	},

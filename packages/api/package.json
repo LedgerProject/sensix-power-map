@@ -4,8 +4,7 @@
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {
-		"build": "rimraf dist && rimraf tsconfig.tsbuildinfo && tsc",
-		"reset": "rimraf node_modules"
+		"build": "rimraf dist && rimraf tsconfig.tsbuildinfo && tsc"
 	},
 	"dependencies": {
 		"axios": "^0.23.0",
