@@ -1,6 +1,4 @@
-const MAP_DOMAIN = 'agg.sensix.xyz';
-
-import axios, { AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 import { isEmpty } from 'lodash';
 
 export const instance = axios.create({
@@ -34,9 +32,16 @@ instance.interceptors.request.use(async (request) => {
 	return request;
 });
 
+// fallback domain(production) -> will be updated once web package initializes;
+let mapDomain = 'agg.sensix.io';
+
 export function buildUrl(endpoint = '') {
-	let url = `https://${MAP_DOMAIN}/api/v1${endpoint}`;
+	let url = `https://${mapDomain}/api/v1${endpoint}`;
 
 	if (url.charAt(url.length - 1) !== '/') url = `${url}/`;
 	return url;
+}
+
+export function setApiDomain(newDomain: string) {
+	mapDomain = newDomain;
 }
