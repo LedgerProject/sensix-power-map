@@ -24,7 +24,7 @@ import { TrendChart, BarChart } from 'components/Charts';
 export function Overlay(): JSX.Element | null {
 	const mapStatusToColors = useStatusColors();
 
-	const activeCellId = useActiveCell()[0];
+	const [activeCellId, setActiveCellId] = useActiveCell();
 
 	const [cell, getCell] = useCell(activeCellId ?? undefined);
 
@@ -37,14 +37,14 @@ export function Overlay(): JSX.Element | null {
 		}
 	});
 
-	// useEffect(() => {
-	// 	if (!overlay) {
-	// 		const t = setTimeout(() => {
-	// 			setActiveCellId(null);
-	// 		}, 250);
-	// 		return () => clearTimeout(t);
-	// 	}
-	// }, [overlay, setActiveCellId]);
+	useEffect(() => {
+		if (!overlay) {
+			const t = setTimeout(() => {
+				setActiveCellId(null);
+			}, 250);
+			return () => clearTimeout(t);
+		}
+	}, [overlay, setActiveCellId]);
 
 	useEffect(() => {
 		if (activeCellId) {
@@ -72,10 +72,10 @@ export function Overlay(): JSX.Element | null {
 				<CloseButton onClick={() => setOverlay(false)} />
 				<H6>Harmonic Distortions chart</H6>
 				<ChartsWrapper>
-					{Object.keys(cell.data.metrics).map((o) => {
+					{Object.keys(cell.data.metrics).map((o, i) => {
 						const key = o as 'THI' | 'THV';
 						return (
-							<ChartRow key={`trendchart-row-${cell.h}`} margin="2rem 0 0 0">
+							<ChartRow key={`trendchart-row-${cell.h}-${i}`} margin="2rem 0 0 0">
 								<TrendChart
 									color={Colors.orange}
 									data={cell.data.metrics[key].values}

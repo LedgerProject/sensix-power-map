@@ -1,14 +1,14 @@
-import { selectZoom, setZoom } from "store/ui/theme";
-import { useDispatch, useSelector } from "hooks";
+import { selectZoom, setZoom } from 'store/ui/theme';
+import { useDispatch, useSelector } from 'hooks';
 
-export function useZoom(): [number | null, (zoom: number) => void] {
-  const dispatch = useDispatch();
+export function useZoom(): [number, (zoom: number) => void] {
+	const dispatch = useDispatch();
 
-  const data = useSelector((state) => selectZoom(state.ui.theme));
+	const data = useSelector((state) => selectZoom(state.ui.theme));
 
-  function handler(zoom: number) {
-    dispatch(setZoom(zoom));
-  }
+	function handler(zoom: number) {
+		dispatch(setZoom(zoom));
+	}
 
-  return [data, handler];
+	return [data, handler];
 }

@@ -1,48 +1,37 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo } from 'react';
 import { Rectangle, useMap } from 'react-leaflet';
 import { LatLngLiteral } from 'leaflet';
 import Geohash from 'latlon-geohash';
-import { CellOverviewData } from '@sensix-map/api';
 
-import { Colors } from 'environment';
 import { useActiveCell, useStatusColors } from 'hooks';
 
-export function Cell({ h }: CellOverviewData) {
-	const mapStatusToColor = useStatusColors();
+interface Props {
+	hash: string;
+	bounds: Geohash.Bounds;
+	coords: LatLngLiteral;
+}
 
-	const [, setActiveCell] = useActiveCell();
+export function Cell({ hash, bounds, coords }: Props) {
+	const mapStatusToColor = useStatusColors();
 
 	const map = useMap();
 
-	const [bounds, setBounds] = useState<Geohash.Bounds>();
-	const [coords, setCoords] = useState<LatLngLiteral>();
-
-	useEffect(() => {
-		if (h) {
-			setBounds(Geohash.bounds(h));
-			const latLng = Geohash.decode(h);
-			setCoords({ lat: latLng.lat, lng: latLng.lon });
-		}
-	}, [h]);
+	const [, setActiveCell] = useActiveCell();
 
 	function onClickHandler() {
-		if (h) {
-			setActiveCell(h);
-			coords && map.setView(coords);
-		}
+		hash && setActiveCell(hash);
+		coords && map.flyTo(coords);
 	}
 
-	if (!coords || !bounds) return <></>;
-
-	return (
-		<div style={{ zIndex: 99999999 }}>
+	return useMemo(
+		() => (
 			<Rectangle
 				eventHandlers={{
 					click: () => onClickHandler()
 				}}
 				key={`${coords.lat}-${coords.lng}`}
 				pathOptions={{
-					fillColor: mapStatusToColor(Math.floor(Math.random() * 4)) || Colors.alto,
+					fillColor: mapStatusToColor(Math.floor(Math.random() * 4)),
 					stroke: false,
 					fill: true,
 					fillOpacity: 0.7,
@@ -53,6 +42,8 @@ export function Cell({ h }: CellOverviewData) {
 					[bounds.ne.lat, bounds.ne.lon]
 				]}
 			/>
-		</div>
+		),
+		// eslint-disable-next-line
+		[hash]
 	);
 }
