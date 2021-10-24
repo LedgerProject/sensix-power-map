@@ -1,21 +1,17 @@
 import React, { useEffect, useMemo } from 'react';
 import { MapContainer } from 'react-leaflet';
-import { LatLngLiteral } from 'leaflet';
 import Geohash from 'latlon-geohash';
 
-import { useCells, useActiveTheme } from 'hooks';
+import { useCells, useActiveTheme, useCenter, useZoom } from 'hooks';
 import { TileLayer, Cell } from 'components';
-
-const defaultMapCenter: LatLngLiteral = {
-	lat: 46.6427,
-	lng: 25.5887
-};
 
 export function Map() {
 	console.log('rerender map');
 
 	const [cells, getCells] = useCells();
 	const activeTheme = useActiveTheme()[0];
+	const zoom = useZoom()[0];
+	const center = useCenter()[0];
 
 	useEffect(() => {
 		getCells();
@@ -34,9 +30,8 @@ export function Map() {
 					top: '6rem',
 					zIndex: 998
 				}}
-				center={defaultMapCenter}
-				zoom={8}
-				maxZoom={18}
+				center={center}
+				zoom={zoom}
 			>
 				<TileLayer />
 				{cells.map((cell) => (
@@ -52,6 +47,7 @@ export function Map() {
 				))}
 			</MapContainer>
 		),
+		// eslint-disable-next-line
 		[activeTheme, cells]
 	);
 }
