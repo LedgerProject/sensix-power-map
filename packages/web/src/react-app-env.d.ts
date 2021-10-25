@@ -3,6 +3,6 @@
 
 declare namespace NodeJS {
 	interface ProcessEnv {
-		REACT_APP_DOMAIN: string;
+		REACT_APP_HOSTNAME: string;
 	}
 }
