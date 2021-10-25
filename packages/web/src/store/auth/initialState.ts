@@ -1,6 +1,6 @@
 import { setApiDomain } from '@sensix-map/api';
 
-const domain = localStorage.getItem('sensix-map-domain') || process.env.REACT_APP_HOSTNAME;
+const domain = localStorage.getItem('sensix-map-domain') || process.env.REACT_APP_BACKEND_HOSTNAME;
 setApiDomain(domain);
 
 const initialState = {
