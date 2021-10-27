@@ -21,11 +21,13 @@
 		"@types/react-transition-group": "^4.4.2",
 		"@types/styled-components": "^5.1.13",
 		"copy-webpack-plugin": "^9.0.1",
+		"eslint-config-prettier": "^8.3.0",
 		"immer": "^9.0.6",
 		"invariant": "^2.2.4",
 		"jwt-decode": "^3.1.2",
 		"latlon-geohash": "^2.0.0",
 		"leaflet": "^1.7.1",
+		"lodash": "^4.17.21",
 		"moment": "^2.29.1",
 		"prettier": "^2.4.1",
 		"react": "^17.0.2",
@@ -63,6 +65,8 @@
 		"not op_mini all"
 	],
 	"devDependencies": {
-		"@types/latlon-geohash": "^2.0.0"
+		"@types/invariant": "^2.2.35",
+		"@types/latlon-geohash": "^2.0.0",
+		"@types/lodash": "^4.14.176"
 	}
 }
