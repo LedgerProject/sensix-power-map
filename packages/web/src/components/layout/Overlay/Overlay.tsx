@@ -19,7 +19,7 @@ import {
 	Column,
 	Content
 } from './Overlay.style';
-import { TrendChart, BarChart } from 'components/Charts';
+import { TrendChart, BarChart } from 'components/charts';
 
 export function Overlay(): JSX.Element | null {
 	const mapStatusToColors = useStatusColors();

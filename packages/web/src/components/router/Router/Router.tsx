@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { GridProvider } from './GridProvider';
 import { Home, Login } from 'pages';
-import { Navbar } from '../Navbar/Navbar';
+import { Navbar } from '../../layout/Navbar/Navbar';
 import { Main } from './Router.style';
 
 function Routes() {

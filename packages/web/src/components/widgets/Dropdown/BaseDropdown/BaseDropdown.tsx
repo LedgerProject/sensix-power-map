@@ -123,7 +123,7 @@ export function BaseDropdown<T>({
 			itemsCount.current++;
 		}
 
-		return React.Children.map(children, child => {
+		return React.Children.map(children, (child) => {
 			if (!React.isValidElement(child) || typeof child.type === 'string') return child;
 
 			if (child.type.name !== DropdownItem.name) {
@@ -174,8 +174,8 @@ export function BaseDropdown<T>({
 
 			if (!open) onOpenChange(true);
 			else {
-				if (e.key === 'ArrowDown') setFocused(i => (i + 1 + count) % count);
-				if (e.key === 'ArrowUp') setFocused(i => (i - 1 + count) % count);
+				if (e.key === 'ArrowDown') setFocused((i) => (i + 1 + count) % count);
+				if (e.key === 'ArrowUp') setFocused((i) => (i - 1 + count) % count);
 			}
 		}
 

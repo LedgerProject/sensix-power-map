@@ -42,6 +42,10 @@ export const Link = styled.a<LinkProps>`
 	position: relative;
 	width: 10.5rem;
 	margin: ${({ margin }) => margin};
+
+	:hover {
+		color: ${({ theme }) => theme.link.hover};
+	}
 `;
 
 export const Right = styled.div`

@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components/macro';
-import { Colors } from './colors';
 
 export const GlobalStyle = createGlobalStyle<any>`
     * {
@@ -75,13 +74,6 @@ export const GlobalStyle = createGlobalStyle<any>`
         outline: none;
         text-decoration: none;
         transition: color 0.2s;
-
-        :not(:disabled) {
-            :focus,
-            :hover {
-                color: ${Colors.white};
-            }
-        }
     }
 
     span {

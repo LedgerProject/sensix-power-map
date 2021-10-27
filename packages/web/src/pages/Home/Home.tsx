@@ -1,14 +1,14 @@
-import React from "react";
-import { Legend } from "components/Legend/Legend";
-import { Map } from "components/Map/Map";
-import { Overlay } from "components/Overlay/Overlay";
+import React from 'react';
+import { Legend } from 'components/layout/Legend/Legend';
+import { Map } from 'components/layout/Map/Map';
+import { Overlay } from 'components/layout/Overlay/Overlay';
 
 export function Home() {
-  return (
-    <div>
-      <Map />
-      <Overlay />
-      <Legend />
-    </div>
-  );
+	return (
+		<div>
+			<Map />
+			<Overlay />
+			<Legend />
+		</div>
+	);
 }
