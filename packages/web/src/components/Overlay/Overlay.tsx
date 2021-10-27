@@ -69,7 +69,7 @@ export function Overlay(): JSX.Element | null {
 		>
 			<Content>
 				{/** absolutely pos */}
-				<CloseButton onClick={() => setOverlay(false)} />
+				<CloseButton type={(t) => t.Close} onClick={() => setOverlay(false)} />
 				<H6>Harmonic Distortions chart</H6>
 				<ChartsWrapper>
 					{Object.keys(cell.data.metrics).map((o, i) => {

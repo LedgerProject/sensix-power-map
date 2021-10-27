@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { ReactComponent as CloseIcon } from 'components/Icons/close.svg';
-import { Typography } from 'components/Typography';
+import { Icon } from 'components/icons';
+import { Typography } from 'components/displayers/Typography';
 import { animated } from 'react-spring';
 
 interface MarginProps {
@@ -67,7 +67,7 @@ export const Content = styled.div`
 	}
 `;
 
-export const CloseButton = styled(CloseIcon)`
+export const CloseButton = styled(Icon)`
 	position: absolute;
 	top: 2rem;
 	right: 2rem;

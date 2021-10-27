@@ -7,6 +7,8 @@ export { useDebounce } from './ui/useDebounce';
 export { useWindowSize } from './ui/useWindowSize';
 export { useZoom } from './ui/useZoom';
 export { useCenter } from './ui/useCenter';
+export { useMeasure } from './ui/useMeasure';
+export { useMediaQuery } from './ui/useMediaQuery';
 
 export { useActiveCell } from './data/cells/useActiveCell';
 export { useCell } from './data/cells/useCell';

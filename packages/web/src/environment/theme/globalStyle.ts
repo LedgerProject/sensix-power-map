@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components/macro";
-import { Colors } from "./colors";
+import { createGlobalStyle } from 'styled-components/macro';
+import { Colors } from './colors';
 
 export const GlobalStyle = createGlobalStyle<any>`
     * {
@@ -79,7 +79,7 @@ export const GlobalStyle = createGlobalStyle<any>`
         :not(:disabled) {
             :focus,
             :hover {
-                color: ${Colors.green700};
+                color: ${Colors.white};
             }
         }
     }
@@ -126,8 +126,7 @@ export const GlobalStyle = createGlobalStyle<any>`
     }
 
     .leaflet-control-zoom-in {
-        border-bottom: ${({ theme }) =>
-          `1px solid ${theme.zoom.border}`} !important;
+        border-bottom: ${({ theme }) => `1px solid ${theme.zoom.border}`} !important;
     }
 
     .leaflet-control-zoom-out, .leaflet-control-zoom-in {
