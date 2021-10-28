@@ -14,7 +14,6 @@ import {
 	Row,
 	BreakLine,
 	Span,
-	Button,
 	ChartsWrapper,
 	Column,
 	Content
@@ -48,15 +47,6 @@ export function Overlay(): JSX.Element | null {
 		cellFilters?.id && setActiveCellId(cellFilters.id);
 		// eslint-disable-next-line
 	}, [cellFilters.id]);
-
-	useEffect(() => {
-		if (!overlay) {
-			const t = setTimeout(() => {
-				setActiveCellId(null);
-			}, 250);
-			return () => clearTimeout(t);
-		}
-	}, [overlay, setActiveCellId]);
 
 	useEffect(() => {
 		if (activeCellId && timeFilters.range) {
@@ -122,9 +112,6 @@ export function Overlay(): JSX.Element | null {
 					nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 				</Span>
 				<Link to="#">Read more</Link>
-				<Row margin="auto 0 0 0">
-					<Button>Share</Button>
-				</Row>
 			</Content>
 		</Container>
 	);

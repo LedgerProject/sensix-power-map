@@ -1,4 +1,4 @@
-export const RELATIVE_TIME_RANGE_OPTIONS = <const>[0, 3, 8, 24, 48];
+export const RELATIVE_TIME_RANGE_OPTIONS = <const>[3, 8, 24, 48];
 export interface Metadata {
 	next: string | null;
 	previous: string | null;

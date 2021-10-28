@@ -140,23 +140,3 @@ export const Span = styled(Typography.Span)`
 	margin-bottom: 2.4rem;
 	color: ${({ theme }) => theme.p};
 `;
-
-export const Button = styled.button`
-	width: 12rem;
-	height: 4rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-top: auto;
-	margin-left: auto;
-	padding: 0 0.8rem;
-	box-shadow: ${({ theme }) => theme.button.secondary.shadow};
-	background-color: ${({ theme }) => theme.button.secondary.background};
-	color: ${({ theme }) => theme.button.secondary.color};
-	border-radius: 0.8rem;
-	border: none;
-	cursor: pointer;
-	font-weight: bold;
-	font-size: 1.6rem;
-	line-height: 1.5;
-`;

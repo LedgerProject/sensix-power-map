@@ -6,7 +6,6 @@ export function useCellFilters(): [CellFilters, (input: CellFilters) => void] {
 	const data = useSelector((state) => selectCellFilters(state.ui.filters));
 
 	function handler(input: CellFilters) {
-		console.log('in hook', input);
 		dispatch(applyCellFilters(input));
 	}
 
