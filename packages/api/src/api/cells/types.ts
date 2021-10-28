@@ -1,3 +1,4 @@
+import { RelativeTimeRange } from 'index';
 import { Metadata, CellStatus, CellStatusLevel, DataPoint } from '../../types';
 
 export type RelativeTimeRangeOption = 'r0' | 'r3' | 'r24' | 'r48';
@@ -49,6 +50,11 @@ export interface HarmonicDistorsionsData {
 export interface HarmonicDistorsionsCell extends CellOverviewData {
 	metadata: HarmonicDistorsionsMetadata;
 	data: HarmonicDistorsionsData;
+}
+
+export interface GetCellInput {
+	id: string;
+	timeRange: RelativeTimeRange;
 }
 
 export type CellData = HarmonicDistorsionsCell;

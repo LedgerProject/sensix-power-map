@@ -1,4 +1,4 @@
-import { GetCellsOverviewData, GetCellData } from '@sensix-map/api';
+import { GetCellsOverviewData, GetCellData, GetCellInput } from '@sensix-map/api';
 import { Thunk } from 'store';
 import { ActionType, GetCellsAction, GetCellAction, SetActiveCellAction } from './types';
 
@@ -18,7 +18,7 @@ const getCellAction = (data: GetCellData): GetCellAction => ({
 });
 
 export const getCell =
-	(input: string): Thunk =>
+	(input: GetCellInput): Thunk =>
 	async (dispatch, _, context) => {
 		const data = await context.api.data.cells().getCell(input);
 		dispatch(getCellAction(data));
