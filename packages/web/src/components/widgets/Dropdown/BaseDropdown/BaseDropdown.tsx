@@ -107,6 +107,7 @@ export function BaseDropdown<T>({
 
 		document.addEventListener('mousedown', callback);
 		return () => document.removeEventListener('mousedown', callback);
+		// eslint-disable-next-line
 	}, outsideDeps);
 
 	useEffect(() => {
@@ -114,6 +115,7 @@ export function BaseDropdown<T>({
 			setFocused(getInitialFocus(searchComponent));
 			onClose?.();
 		}
+		// eslint-disable-next-line
 	}, [open]);
 
 	function enhanceChildren(children: React.ReactNode): React.ReactNode {

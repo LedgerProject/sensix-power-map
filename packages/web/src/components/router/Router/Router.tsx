@@ -5,8 +5,11 @@ import { GridProvider } from './GridProvider';
 import { Home, Login } from 'pages';
 import { Navbar } from '../../layout/Navbar/Navbar';
 import { Main } from './Router.style';
+import { useQueryParams } from 'hooks';
 
 function Routes() {
+	useQueryParams();
+
 	return (
 		<Switch>
 			<Route path="/" component={Home} />

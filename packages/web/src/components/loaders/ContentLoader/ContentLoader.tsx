@@ -32,6 +32,7 @@ export function ContentLoader({
 		if (condition && loading && !isLoading) {
 			setIsLoading(true);
 		}
+		// eslint-disable-next-line
 	}, [condition, loading]);
 
 	return (

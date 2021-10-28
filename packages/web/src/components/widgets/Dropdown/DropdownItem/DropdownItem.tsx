@@ -54,6 +54,7 @@ export function DropdownItem<T>({
 		if (shouldClose && prevLoading && !loading && onClose) {
 			onClose();
 		}
+		// eslint-disable-next-line
 	}, [loading, prevLoading, shouldClose]);
 
 	function handleClick(e?: React.MouseEvent<HTMLDivElement, MouseEvent>) {
@@ -103,7 +104,7 @@ export function DropdownItem<T>({
 			onKeyDown={handleKeyDown}
 		>
 			{isPhone ? <span>{children}</span> : children}
-			{isSelected && <Icon size={2.4} type={t => t.Checkmark} />}
+			{isSelected && <Icon size={2.4} type={(t) => t.Checkmark} />}
 			{loading && <QuantumLoader size={2.4} />}
 		</Option>
 	);

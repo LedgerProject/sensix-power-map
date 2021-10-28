@@ -1,14 +1,16 @@
 import { RelativeTimeRange, RELATIVE_TIME_RANGE_OPTIONS } from '@sensix-map/api';
 
-import { TimeFilters } from 'store/ui/filters';
+import { TimeFilters, CellFilters } from 'store/ui/filters';
 
 interface SetQueryParamsInput {
 	timeFilters?: TimeFilters;
+	cellFilters?: CellFilters;
 }
 
 export const QueryParams = {
 	parse: function () {
 		const time: TimeFilters = {};
+		let cell: CellFilters = {};
 
 		new URLSearchParams(window.location.search).forEach((value, key) => {
 			if (key === 'range' && Number.parseInt(value)) {
@@ -18,15 +20,23 @@ export const QueryParams = {
 					time.range = candidate;
 				}
 			}
+
+			if (key === 'h' && value) {
+				cell.id = value;
+			}
 		});
 
-		return { time };
+		return { time, cell };
 	},
-	set: function ({ timeFilters }: SetQueryParamsInput) {
+	set: function ({ timeFilters, cellFilters }: SetQueryParamsInput) {
 		const params = new URLSearchParams();
 
 		if (timeFilters?.range !== undefined && timeFilters?.range !== null) {
 			params.set('range', timeFilters.range.toString());
+		}
+
+		if (cellFilters?.id) {
+			params.set('h', cellFilters.id.toString());
 		}
 
 		return params;

@@ -48,6 +48,7 @@ export function useWindowSize(wait?: number) {
 				window.removeEventListener('resize', onResize, true);
 			}
 		};
+		// eslint-disable-next-line
 	}, []);
 
 	return { ...size, resizing: resizing || !finished };

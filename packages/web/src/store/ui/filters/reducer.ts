@@ -12,6 +12,14 @@ const reducer = (state: State = initialState, action: FiltersActions): State => 
 			});
 		}
 
+		case FiltersActionType.APPLY_CELL_FILTERS: {
+			const { filters } = action.payload;
+
+			return produce(state, (draft) => {
+				draft.cell = filters;
+			});
+		}
+
 		default: {
 			return state;
 		}

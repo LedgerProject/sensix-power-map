@@ -3,7 +3,7 @@ import { useSpring } from 'react-spring';
 
 import { Colors } from 'environment';
 import { Link } from 'components';
-import { useActiveCell, useCell, useStatusColors, useTimeFilters } from 'hooks';
+import { useActiveCell, useCell, useStatusColors, useTimeFilters, useCellFilters } from 'hooks';
 import {
 	Container,
 	CloseButton,
@@ -27,6 +27,7 @@ const CHART_DATA_LIMIT = 12; //TODO: handle this in the reducer
 
 export function Overlay(): JSX.Element | null {
 	const timeFilters = useTimeFilters()[0];
+	const [cellFilters, setCellFilters] = useCellFilters();
 
 	const mapStatusToColors = useStatusColors();
 
@@ -44,6 +45,11 @@ export function Overlay(): JSX.Element | null {
 	});
 
 	useEffect(() => {
+		cellFilters?.id && setActiveCellId(cellFilters.id);
+		// eslint-disable-next-line
+	}, [cellFilters.id]);
+
+	useEffect(() => {
 		if (!overlay) {
 			const t = setTimeout(() => {
 				setActiveCellId(null);
@@ -58,6 +64,7 @@ export function Overlay(): JSX.Element | null {
 				id: activeCellId,
 				timeRange: timeFilters.range
 			});
+			setCellFilters({ id: activeCellId });
 		}
 		// eslint-disable-next-line
 	}, [activeCellId, timeFilters.range]);

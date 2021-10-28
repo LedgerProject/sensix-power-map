@@ -58,10 +58,12 @@ export function SearchDropdown<T>({
 	const handleSelect = useCallback((data: T) => {
 		setSelectedItem(data);
 		onSelect?.(data);
+		// eslint-disable-next-line
 	}, selectDeps);
 
 	useEffect(() => {
 		if (isOpen) onOpen && onOpen();
+		// eslint-disable-next-line
 	}, [isOpen]);
 
 	return (

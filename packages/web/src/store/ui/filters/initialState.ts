@@ -1,10 +1,11 @@
 import { QueryParams } from 'helpers';
 import { State } from './types';
 
-const { time } = QueryParams.parse();
+const { time, cell } = QueryParams.parse();
 
 const initialState: State = {
-	time
+	time,
+	cell
 };
 
 export default initialState;

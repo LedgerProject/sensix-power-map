@@ -12,6 +12,7 @@ export function useDropdown({ disabled, open }: Props) {
 
 	useEffect(() => {
 		if (open !== isOpen) setIsOpen(open);
+		// eslint-disable-next-line
 	}, [open]);
 
 	const handleOpenChange = useCallbackOnce((value: boolean) => {
@@ -19,7 +20,7 @@ export function useDropdown({ disabled, open }: Props) {
 	});
 
 	const handleToggle = useCallback(() => {
-		if (!disabled) setIsOpen(s => !s);
+		if (!disabled) setIsOpen((s) => !s);
 	}, [disabled]);
 
 	return {

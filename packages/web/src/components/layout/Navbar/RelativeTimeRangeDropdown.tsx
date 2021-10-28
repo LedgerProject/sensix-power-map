@@ -30,6 +30,7 @@ export function RelativeTimeRangeDropdown({ width = 20 }: Props) {
 				replace(location.pathname, params.toString());
 			}
 		}
+		// eslint-disable-next-line
 	}, [timeFilters.range]);
 
 	return (
