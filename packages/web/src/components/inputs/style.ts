@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro';
 import { PlacementProps } from 'types';
+import { Colors } from 'environment';
 
 export interface StyleProps {
 	margin?: PlacementProps;
@@ -11,6 +12,7 @@ interface StateProps {
 }
 
 export const Container = styled.div<StyleProps>`
+	z-index: 99999;
 	display: flex;
 	flex-direction: column;
 	margin-top: ${({ margin }) => (margin?.top ? `${margin.top}rem` : 0)};
@@ -24,31 +26,25 @@ export const Container = styled.div<StyleProps>`
 
 export const Input = styled.input<StateProps>`
 	background-color: ${({ theme }) => theme.input.background};
-	border: 0.1rem solid
-		${({ theme, invalid }) => (invalid ? theme.input.invalid : theme.input.border)};
+	border: none;
 	border-radius: 0.8rem;
 	color: ${({ theme }) => theme.input.color};
 	min-height: 4rem;
 	outline: none;
-	padding-left: 2.4rem;
+	padding-left: 4rem;
 	padding-right: 2.4rem;
 	width: 100%;
 	transition: border-color 0.2s, color 0.2s;
 
+	::placeholder {
+		color: ${Colors.bluishGrey};
+	}
+
 	:disabled {
 		color: ${({ theme }) => theme.input.disabled};
-		border-color: ${({ theme }) => theme.input.disabled};
 
 		::placeholder {
 			color: ${({ theme }) => theme.input.disabled};
-		}
-	}
-
-	:not(:disabled) {
-		:focus,
-		:hover {
-			border-color: ${({ theme, invalid }) =>
-				invalid ? theme.input.invalid : theme.input.focus};
 		}
 	}
 
@@ -85,7 +81,7 @@ export const Floating = styled.div`
 	align-items: center;
 	position: absolute;
 	top: 0;
-	right: 0.4rem;
+	left: 0.4rem;
 	height: 100%;
 	width: 4rem;
 `;

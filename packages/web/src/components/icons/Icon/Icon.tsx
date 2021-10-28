@@ -82,7 +82,7 @@ export const Icon = React.forwardRef<HTMLDivElement, Props>(function (
 				onKeyDown={handleKeyDown}
 			>
 				<Link isActive={() => active} to={to}>
-					<Component opacity={opacity} />
+					{Component && <Component opacity={opacity} />}
 				</Link>
 			</Container>
 		);
@@ -105,7 +105,7 @@ export const Icon = React.forwardRef<HTMLDivElement, Props>(function (
 			onMouseOut={onMouseOut}
 			onMouseOver={onMouseOver}
 		>
-			<Component opacity={opacity} />
+			{Component && <Component opacity={opacity} />}
 		</Container>
 	);
 });

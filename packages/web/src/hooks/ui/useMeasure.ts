@@ -32,5 +32,6 @@ export function useMeasure<T extends HTMLElement>({ on = true }: Options = {}): 
 		return () => ro.disconnect();
 	}, [on, ro]);
 
+	//@ts-ignore
 	return [ref, bounds];
 }

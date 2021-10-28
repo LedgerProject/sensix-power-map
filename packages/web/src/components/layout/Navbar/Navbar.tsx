@@ -4,26 +4,30 @@ import { FiSun } from 'react-icons/fi';
 
 import { useActiveTheme } from 'hooks';
 import { Colors } from 'environment';
-import { Container, H5, Right, Link, H7, Logo } from './Navbar.style';
+import { Container, H5, Right, Link, H7, Logo, Row } from './Navbar.style';
 
+import { RelativeTimeRangeDropdown } from './RelativeTimeRangeDropdown';
 export function Navbar() {
 	const [theme, toggleTheme] = useActiveTheme();
 
 	return (
 		<Container>
 			<Logo type={(t) => t.Logo} color={Colors.white} />
-			<H5>PowerMap</H5>
+			<H5>Power Map</H5>
+			<div style={{ marginLeft: 'auto' }}>
+				<RelativeTimeRangeDropdown width={13.4} />
+			</div>
 			<Right>
 				{theme === 'light' ? (
-					<>
-						<FiMoon onClick={toggleTheme} size={22} stroke={Colors.bluishGrey} />
+					<Row onClick={toggleTheme}>
+						<FiMoon size={22} stroke={Colors.bluishGrey} />
 						<H7>DARK MODE</H7>
-					</>
+					</Row>
 				) : (
-					<>
-						<FiSun stroke={Colors.paleAqua} onClick={toggleTheme} size={22} />
+					<Row onClick={toggleTheme}>
+						<FiSun stroke={Colors.paleAqua} size={22} />
 						<H7>LIGHT MODE</H7>
-					</>
+					</Row>
 				)}
 
 				<Link active href="#">

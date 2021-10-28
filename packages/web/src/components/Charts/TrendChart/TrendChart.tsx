@@ -24,7 +24,7 @@ interface Props {
 }
 
 export function TrendChart({
-	areaOpacity = 0.55,
+	areaOpacity = 0.35,
 	color,
 	lineWidth = 2,
 	colors = [],

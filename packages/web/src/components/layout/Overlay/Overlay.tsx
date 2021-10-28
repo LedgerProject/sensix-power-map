@@ -21,6 +21,10 @@ import {
 } from './Overlay.style';
 import { TrendChart, BarChart } from 'components/charts';
 
+const colors = [Colors.orange, Colors.alto];
+
+const CHART_DATA_LIMIT = 12; //TODO: handle this in the reducer
+
 export function Overlay(): JSX.Element | null {
 	const mapStatusToColors = useStatusColors();
 
@@ -77,10 +81,10 @@ export function Overlay(): JSX.Element | null {
 						return (
 							<ChartRow key={`trendchart-row-${cell.h}-${i}`} margin="2rem 0 0 0">
 								<TrendChart
-									color={Colors.orange}
+									color={colors[i]}
 									data={cell.data.metrics[key].values}
 								/>
-								<Column margin="0 0 0 2rem">
+								<Column margin="0 2rem 0 0">
 									<P>{cell.metadata[key].short_name}</P>
 									<H6>{`${cell.data.metrics[key].value} ${cell.metadata[o].units_abbrev}`}</H6>
 								</Column>
@@ -88,24 +92,12 @@ export function Overlay(): JSX.Element | null {
 						);
 					})}
 					<ChartRow style={{ flex: 2 }}>
-						<BarChart colors={[Colors.orange, Colors.alto]} data={cell.data.HDs} />
+						<BarChart colors={colors} data={cell.data.HDs.slice(0, CHART_DATA_LIMIT)} />
 					</ChartRow>
 				</ChartsWrapper>
 				<Row margin="2rem 0 0 0">
 					<P>Country</P>
 					<H7>Romania</H7>
-				</Row>
-				<Row>
-					<P>Area</P>
-					<H7>Timis (county)</H7>
-				</Row>
-				{/* <Row>
-					<P>Total aggregated devices</P>
-					<H7>118</H7>
-				</Row> */}
-				<Row>
-					<P>Time interval</P>
-					<H7>past 48h</H7>
 				</Row>
 				<BreakLine />
 				<Row margin={'0 0 0.8rem 0'} justifyContent="flex-start">
@@ -119,7 +111,7 @@ export function Overlay(): JSX.Element | null {
 				</Span>
 				<Link to="#">Read more</Link>
 				<Row margin="auto 0 0 0">
-					<Button>SHARE</Button>
+					<Button>Share</Button>
 				</Row>
 			</Content>
 		</Container>

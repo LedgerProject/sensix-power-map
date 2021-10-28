@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Suggestion } from '@sensix/api';
+import { Suggestion } from '@sensix-map/api';
 
 import { Nullable } from 'types';
 
@@ -52,7 +52,7 @@ export function SearchDropdown<T>({
 	const [selectedItem, setSelectedItem] = useState(defaultSelectedItem);
 
 	useEffect(() => {
-		setItems(suggestions.filter(d => d.name.toLowerCase().includes(value.toLowerCase())));
+		setItems(suggestions.filter((d) => d.name.toLowerCase().includes(value.toLowerCase())));
 	}, [suggestions, value]);
 
 	const handleSelect = useCallback((data: T) => {
@@ -102,7 +102,7 @@ export function SearchDropdown<T>({
 			{items.length === 0 ? (
 				<DropdownEmpty />
 			) : (
-				items.map(suggestion => (
+				items.map((suggestion) => (
 					<DropdownItem data={suggestion} key={`${suggestion.name}-${suggestion.id}`}>
 						{suggestion.name}
 					</DropdownItem>

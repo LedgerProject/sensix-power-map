@@ -23,7 +23,7 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement>, StyleProps 
 	onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
 
-export const TextInput = React.forwardRef<HTMLInputElement, Props>(function(
+export const TextInput = React.forwardRef<HTMLInputElement, Props>(function (
 	{
 		type,
 		value,

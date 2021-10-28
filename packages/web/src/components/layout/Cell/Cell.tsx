@@ -3,6 +3,7 @@ import { Rectangle, useMap } from 'react-leaflet';
 import { LatLngLiteral } from 'leaflet';
 import Geohash from 'latlon-geohash';
 
+import { Colors } from 'environment';
 import { useActiveCell, useStatusColors } from 'hooks';
 
 interface Props {
@@ -16,7 +17,7 @@ export function Cell({ hash, bounds, coords }: Props) {
 
 	const map = useMap();
 
-	const [, setActiveCell] = useActiveCell();
+	const [activeCell, setActiveCell] = useActiveCell();
 
 	function onClickHandler() {
 		hash && setActiveCell(hash);
@@ -32,7 +33,8 @@ export function Cell({ hash, bounds, coords }: Props) {
 				key={`${coords.lat}-${coords.lng}`}
 				pathOptions={{
 					fillColor: mapStatusToColor(Math.floor(Math.random() * 4)),
-					stroke: false,
+					stroke: hash === activeCell ? true : false,
+					color: Colors.white,
 					fill: true,
 					fillOpacity: 0.7,
 					interactive: true
@@ -44,6 +46,6 @@ export function Cell({ hash, bounds, coords }: Props) {
 			/>
 		),
 		// eslint-disable-next-line
-		[hash]
+		[hash, hash === activeCell] // this will rerender just when hash / activeCell relation changes!
 	);
 }

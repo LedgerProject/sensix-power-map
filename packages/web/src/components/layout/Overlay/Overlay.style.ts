@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
+
 import { Icon } from 'components/icons';
 import { Typography } from 'components/displayers/Typography';
-import { animated } from 'react-spring';
+import { Colors } from 'environment';
 
 interface MarginProps {
 	margin?: string;
@@ -18,6 +20,7 @@ interface FlexProps {
 }
 
 export const Column = styled.div<MarginProps>`
+	flex: 1;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
@@ -42,7 +45,7 @@ export const Container = styled(animated.div)<MarginProps & ContainerProps>`
       left/40px 40px no-repeat,
     ${theme.overlay.background};`};
 	color: white;
-	border-radius: 12px;
+	border-radius: 1.2rem;
 	overflow: hidden;
 
 	&::-webkit-scrollbar {
@@ -71,6 +74,12 @@ export const CloseButton = styled(Icon)`
 	position: absolute;
 	top: 2rem;
 	right: 2rem;
+
+	svg {
+		path {
+			fill: ${Colors.white};
+		}
+	}
 	&:hover {
 		cursor: pointer;
 	}
@@ -114,13 +123,14 @@ export const H7 = styled(Typography.H6)<MarginProps>`
 export const P = styled(Typography.P)`
 	font-size: 1.6rem;
 	line-height: 1.5rem;
+	color: ${Colors.alto};
 `;
 
 export const BreakLine = styled.div`
 	width: 100%;
 	height: 0.2rem;
 	min-height: 0.2rem;
-	margin: 1.6rem 0;
+	margin: 0.8rem 0;
 	background-color: ${({ theme }) => theme.breakline};
 `;
 
@@ -132,17 +142,21 @@ export const Span = styled(Typography.Span)`
 `;
 
 export const Button = styled.button`
-	width: 20rem;
+	width: 12rem;
+	height: 4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	margin-top: auto;
 	margin-left: auto;
-	padding: 1.2rem 2.4rem;
+	padding: 0 0.8rem;
 	box-shadow: ${({ theme }) => theme.button.secondary.shadow};
 	background-color: ${({ theme }) => theme.button.secondary.background};
 	color: ${({ theme }) => theme.button.secondary.color};
-	border-radius: 3rem;
+	border-radius: 0.8rem;
 	border: none;
 	cursor: pointer;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 1.6rem;
 	line-height: 1.5;
 `;

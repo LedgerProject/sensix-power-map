@@ -25,6 +25,51 @@ const lightTheme = {
 			color: Colors.indigo
 		}
 	},
+	input: {
+		background: Colors.white,
+		border: Colors.bluishGrey,
+		color: Colors.indigo,
+		focus: Colors.green,
+		placeholder: Colors.bluishGrey,
+		disabled: Colors.paleAqua,
+		invalid: Colors.paleRed
+	},
+	dropdown: {
+		icon: Colors.bluishGrey,
+		shadow: '0 10px 30px 0 rgba(126, 141, 144, 0.15)',
+		separator: Colors.paleAqua,
+		normal: {
+			color: Colors.indigo,
+			background: Colors.ice4,
+			open: {
+				background: Colors.white,
+				color: Colors.indigo
+			},
+			hover: {
+				color: Colors.indigo,
+				background: Colors.ice
+			}
+		},
+		danger: {
+			color: Colors.paleRed,
+			background: Colors.white,
+			hover: {
+				color: Colors.white,
+				background: Colors.paleRed
+			}
+		},
+		minimal: {
+			background: {
+				base: Colors.transparent,
+
+				hover: Colors.ice3
+			},
+			color: {
+				base: Colors.bluishGrey,
+				hover: Colors.indigo
+			}
+		}
+	},
 	link: {
 		hover: Colors.indigo
 	},
@@ -97,6 +142,50 @@ const darkTheme: ThemeStyle = {
 		hover: {
 			background: Colors.mediumGray,
 			color: Colors.white
+		}
+	},
+	input: {
+		background: Colors.indigo,
+		border: Colors.bluishGrey,
+		color: Colors.white,
+		focus: Colors.green,
+		placeholder: Colors.paleAqua,
+		disabled: Colors.bluishGrey,
+		invalid: Colors.paleRed
+	},
+	dropdown: {
+		icon: Colors.bluishGrey,
+		shadow: '0 10px 30px 0 rgba(24, 37, 47, 1)',
+		separator: Colors.bluishGrey,
+		normal: {
+			color: Colors.bluishGrey,
+			background: Colors.indigo,
+			open: {
+				background: Colors.indigo,
+				color: Colors.white
+			},
+			hover: {
+				color: Colors.white,
+				background: Colors.indigo700
+			}
+		},
+		danger: {
+			color: Colors.paleRed,
+			background: Colors.indigo,
+			hover: {
+				color: Colors.white,
+				background: Colors.paleRed
+			}
+		},
+		minimal: {
+			background: {
+				base: Colors.transparent,
+				hover: Colors.indigo
+			},
+			color: {
+				base: Colors.bluishGrey,
+				hover: Colors.white
+			}
 		}
 	},
 	link: {

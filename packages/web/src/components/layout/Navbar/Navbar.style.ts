@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Colors } from 'environment';
 import { Icon } from 'components/icons';
+
 interface LinkProps {
 	margin?: string;
 	active?: boolean;
@@ -18,7 +19,7 @@ export const Container = styled.div`
 	display: flex;
 	align-items: center;
 	width: 100%;
-	height: 6rem;
+	height: 5.4rem;
 	padding: 0 4rem;
 	box-shadow: ${({ theme }) => theme.navbar.shadow};
 	z-index: 99999;
@@ -51,7 +52,6 @@ export const Link = styled.a<LinkProps>`
 export const Right = styled.div`
 	height: 4rem;
 	border-left: 1px solid ${Colors.bluishGrey};
-	margin-left: auto;
 	padding-left: 7.5rem;
 	display: flex;
 	align-items: center;
@@ -66,5 +66,13 @@ export const Logo = styled(Icon)`
 	margin-right: 2.4rem;
 	path {
 		fill: ${({ theme }) => theme.icon};
+	}
+`;
+
+export const Row = styled.div`
+	display: flex;
+	align-items: center;
+	:hover {
+		cursor: pointer;
 	}
 `;

@@ -1,3 +1,4 @@
+export const RELATIVE_TIME_RANGE_OPTIONS = <const>[0, 3, 8, 24, 48];
 export interface Metadata {
 	next: string | null;
 	previous: string | null;
@@ -27,3 +28,10 @@ export enum CellStatus {
 	Optimal,
 	None,
 }
+
+export interface Suggestion<I extends number | string> {
+	id: I;
+	name: string;
+}
+
+export type RelativeTimeRange = typeof RELATIVE_TIME_RANGE_OPTIONS[number];
