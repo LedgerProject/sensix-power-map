@@ -14,6 +14,7 @@ const lightTheme = {
 	breakline: Colors.ice3,
 	lastPoint: Colors.white,
 	icon: {
+		color: Colors.bluishGrey,
 		active: {
 			background: Colors.ice3,
 			color: Colors.indigo
@@ -115,7 +116,8 @@ const lightTheme = {
 	},
 	overlay: {
 		background: Colors.white,
-		shadow: '0 4px 16px 0 rgba(126, 141, 144, 0.3)'
+		shadow: '0 4px 16px 0 rgba(126, 141, 144, 0.3)',
+		p: Colors.bluishGrey
 	}
 };
 
@@ -133,6 +135,7 @@ const darkTheme: ThemeStyle = {
 	breakline: Colors.mediumGray,
 	lastPoint: Colors.indigo,
 	icon: {
+		color: Colors.bluishGrey,
 		active: {
 			background: Colors.indigo300,
 			color: Colors.white
@@ -233,7 +236,8 @@ const darkTheme: ThemeStyle = {
 	},
 	overlay: {
 		background: Colors.paleGrey,
-		shadow: `0 10px 20px 0 ${Colors.dark}`
+		shadow: `0 10px 20px 0 ${Colors.dark}`,
+		p: Colors.alto
 	}
 };
 

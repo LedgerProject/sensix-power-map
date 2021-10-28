@@ -75,11 +75,6 @@ export const CloseButton = styled(Icon)`
 	top: 2rem;
 	right: 2rem;
 
-	svg {
-		path {
-			fill: ${Colors.white};
-		}
-	}
 	&:hover {
 		cursor: pointer;
 	}
@@ -123,7 +118,7 @@ export const H7 = styled(Typography.H6)<MarginProps>`
 export const P = styled(Typography.P)`
 	font-size: 1.6rem;
 	line-height: 1.5rem;
-	color: ${Colors.alto};
+	color: ${({ theme }) => theme.overlay.p};
 `;
 
 export const BreakLine = styled.div`

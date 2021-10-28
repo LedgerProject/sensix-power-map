@@ -8,7 +8,7 @@ export const Container = styled.div`
 	min-width: 15rem;
 	background-color: ${({ theme }) => theme.background};
 	padding: 2rem;
-	opacity: 0.8;
+	opacity: 0.9;
 	z-index: 99999;
 `;
 
