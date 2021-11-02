@@ -26,7 +26,7 @@ export function Map() {
 					right: 0,
 					bottom: 0,
 					top: '5.4rem',
-					zIndex: 998
+					zIndex: 1
 				}}
 				center={center}
 				zoom={zoom}

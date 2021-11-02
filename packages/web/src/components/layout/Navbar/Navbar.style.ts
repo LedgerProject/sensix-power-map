@@ -1,17 +1,22 @@
 import styled from 'styled-components';
 import { Colors } from 'environment';
 import { Icon } from 'components/icons';
+import { Typography } from 'components/displayers';
 
 interface LinkProps {
 	margin?: string;
 	active?: boolean;
 }
 
-export const H7 = styled.h6`
+export const H7 = styled(Typography.H6)`
 	font-size: 1.4rem;
 	margin-right: 7.2rem;
 	margin-left: 0.8rem;
 	color: ${({ theme }) => theme.h3};
+`;
+
+export const Title = styled(Typography.H6)`
+	pointer-events: none;
 `;
 
 export const Container = styled.div`
@@ -24,12 +29,6 @@ export const Container = styled.div`
 	box-shadow: ${({ theme }) => theme.navbar.shadow};
 	z-index: 99999;
 	box-shadow: ${({ theme }) => theme.navbar.shadow};
-`;
-
-export const H5 = styled.h5`
-	font-size: 2.4rem;
-	color: ${({ theme }) => theme.h3};
-	font-weight: 400;
 `;
 
 export const Link = styled.a<LinkProps>`
@@ -64,8 +63,12 @@ export const Right = styled.div`
 
 export const Logo = styled(Icon)`
 	margin-right: 2.4rem;
-	path {
-		fill: ${({ theme }) => theme.icon};
+	svg {
+		width: 3.2rem;
+		height: 3.2rem;
+		path {
+			fill: ${({ theme }) => theme.logo};
+		}
 	}
 `;
 

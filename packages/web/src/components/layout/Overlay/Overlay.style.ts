@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
+import { Layers } from 'environment';
 import { Icon } from 'components/icons';
 import { Typography } from 'components/displayers/Typography';
-import { Colors } from 'environment';
 
 interface MarginProps {
 	margin?: string;
@@ -33,9 +33,9 @@ export const Container = styled(animated.div)<MarginProps & ContainerProps>`
 	position: fixed;
 	right: 4rem;
 	top: 10rem;
-	bottom: max(15%, 10rem);
+	bottom: 30%;
 	width: 48.8rem;
-	z-index: 999999;
+	z-index: ${Layers.overlay};
 	border-radius: 1rem;
 	box-shadow: ${({ theme }) => theme.overlay.shadow};
 	background: ${({

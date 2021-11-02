@@ -13,6 +13,7 @@ const lightTheme = {
 	background: Colors.ice,
 	breakline: Colors.ice3,
 	lastPoint: Colors.white,
+	logo: Colors.indigo,
 	icon: {
 		color: Colors.bluishGrey,
 		active: {
@@ -134,6 +135,7 @@ const darkTheme: ThemeStyle = {
 	background: Colors.indigo,
 	breakline: Colors.mediumGray,
 	lastPoint: Colors.indigo,
+	logo: Colors.white,
 	icon: {
 		color: Colors.bluishGrey,
 		active: {

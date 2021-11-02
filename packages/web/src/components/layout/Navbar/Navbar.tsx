@@ -4,16 +4,16 @@ import { FiSun } from 'react-icons/fi';
 
 import { useActiveTheme } from 'hooks';
 import { Colors } from 'environment';
-import { Container, H5, Right, Link, H7, Logo, Row } from './Navbar.style';
-
 import { RelativeTimeRangeDropdown } from './RelativeTimeRangeDropdown';
+import { Container, Right, Link, H7, Logo, Row, Title } from './Navbar.style';
+
 export function Navbar() {
 	const [theme, toggleTheme] = useActiveTheme();
 
 	return (
 		<Container>
 			<Logo type={(t) => t.Logo} color={Colors.white} />
-			<H5>Power Map</H5>
+			<Title>Power Map</Title>
 			<div style={{ marginLeft: 'auto' }}>
 				<RelativeTimeRangeDropdown width={13.4} />
 			</div>
