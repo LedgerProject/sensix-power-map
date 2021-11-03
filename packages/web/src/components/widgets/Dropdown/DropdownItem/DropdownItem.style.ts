@@ -13,7 +13,7 @@ export const Option = styled.div<Props>`
 	align-items: center;
 	height: 4.8rem;
 	width: 100%;
-	padding: 0 2.4rem;
+	padding: 0 1.6rem;
 	background-color: ${({ danger, theme }) =>
 		danger ? theme.dropdown.danger.background : theme.dropdown.normal.open};
 	outline: none;
