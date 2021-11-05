@@ -7,7 +7,7 @@ export interface CellOverviewData {
 	r: RelativeTimeRangeOption;
 	cid: string;
 	h: string; // hash
-	sid: string;
+	sid: CellStatus;
 }
 
 export interface GetCellsOverviewData extends Metadata {

@@ -35,6 +35,7 @@ export function Map() {
 				{cells.map((cell) => (
 					<Cell
 						key={`cell-${cell.h}`}
+						sid={cell.sid}
 						hash={cell.h}
 						bounds={Geohash.bounds(cell.h)}
 						coords={{

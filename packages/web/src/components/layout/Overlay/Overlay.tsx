@@ -71,7 +71,7 @@ export function Overlay(): JSX.Element | null {
 				...fadeStyles,
 				visibility: fadeStyles.opacity.to((o) => (o !== 0 ? 'visible' : 'hidden'))
 			}}
-			color={mapStatusToColors(Math.floor(Math.random() * 4))}
+			color={mapStatusToColors(cell.sid)}
 		>
 			<Content>
 				{/** absolutely pos */}

@@ -5,14 +5,16 @@ import Geohash from 'latlon-geohash';
 
 import { Colors } from 'environment';
 import { useActiveCell, useStatusColors } from 'hooks';
+import { CellStatus } from '@sensix-map/api';
 
 interface Props {
+	sid: CellStatus;
 	hash: string;
 	bounds: Geohash.Bounds;
 	coords: LatLngLiteral;
 }
 
-export function Cell({ hash, bounds, coords }: Props) {
+export function Cell({ hash, bounds, coords, sid }: Props) {
 	const mapStatusToColor = useStatusColors();
 
 	const map = useMap();
@@ -32,7 +34,7 @@ export function Cell({ hash, bounds, coords }: Props) {
 				}}
 				key={`${coords.lat}-${coords.lng}`}
 				pathOptions={{
-					fillColor: mapStatusToColor(Math.floor(Math.random() * 4)),
+					fillColor: mapStatusToColor(sid),
 					stroke: hash === activeCell ? true : false,
 					color: Colors.white,
 					fill: true,
