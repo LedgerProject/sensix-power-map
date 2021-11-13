@@ -20,11 +20,19 @@ interface FlexProps {
 }
 
 export const Column = styled.div<MarginProps>`
-	flex: 1;
+	white-space: nowrap;
+	flex: 0.25;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
 	margin: ${({ margin }) => margin};
+
+	p,
+	h6 {
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+	}
 `;
 
 export const Container = styled(animated.div)<MarginProps & ContainerProps>`
@@ -33,7 +41,7 @@ export const Container = styled(animated.div)<MarginProps & ContainerProps>`
 	position: fixed;
 	right: 4rem;
 	top: 10rem;
-	bottom: 30%;
+	bottom: min(30%, 200px);
 	width: 48.8rem;
 	z-index: ${Layers.overlay};
 	border-radius: 1rem;

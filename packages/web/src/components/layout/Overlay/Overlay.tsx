@@ -63,6 +63,11 @@ export function Overlay(): JSX.Element | null {
 		cell && setOverlay(true);
 	}, [cell]);
 
+	function handleCloseOverlay() {
+		setCellFilters({ id: undefined });
+		setOverlay(false);
+	}
+
 	if (!cell) return null;
 
 	return (
@@ -75,10 +80,10 @@ export function Overlay(): JSX.Element | null {
 		>
 			<Content>
 				{/** absolutely pos */}
-				<CloseButton type={(t) => t.Close} onClick={() => setOverlay(false)} />
+				<CloseButton type={(t) => t.Close} onClick={handleCloseOverlay} />
 				<H6>Harmonic Distortions chart</H6>
 				<ChartsWrapper>
-					{Object.keys(cell.data.metrics).map((o, i) => {
+					{cell.data.order.map((o, i) => {
 						const key = o as 'THI' | 'THV';
 						return (
 							<ChartRow key={`trendchart-row-${cell.h}-${i}`} margin="2rem 0 0 0">
@@ -86,9 +91,9 @@ export function Overlay(): JSX.Element | null {
 									color={colors[i]}
 									data={cell.data.metrics[key].values}
 								/>
-								<Column margin="0 2rem 0 0">
-									<P>{cell.metadata[key].short_name}</P>
-									<H6>{`${cell.data.metrics[key].value} ${cell.metadata[o].units_abbrev}`}</H6>
+								<Column>
+									<P>{cell.metadata[key].name}</P>
+									<H6>{`${cell.data.metrics[key].value} ${cell.metadata[o].units}`}</H6>
 								</Column>
 							</ChartRow>
 						);

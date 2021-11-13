@@ -29,9 +29,8 @@ export interface HarmonicDistortionsBarData {
 
 export interface Metric {
 	name: string;
-	short_name: string;
-	type: string;
-	units_abbrev: string;
+	text: string;
+	units: string;
 }
 
 export interface HarmonicDistorsionsMetadata {
@@ -43,8 +42,8 @@ export interface HarmonicDistorsionsData {
 	metrics: {
 		THI: HarmonicDistortionsLineData;
 		THV: HarmonicDistortionsLineData;
-		order: string[];
 	};
+	order: string[];
 }
 
 export interface HarmonicDistorsionsCell extends CellOverviewData {
