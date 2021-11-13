@@ -76,6 +76,9 @@ export const Content = styled.div`
 	::-webkit-scrollbar {
 		display: none;
 	}
+	li:last-of-type {
+		margin-bottom: 1.6rem;
+	}
 `;
 
 export const CloseButton = styled(Icon)`
@@ -137,9 +140,19 @@ export const BreakLine = styled.div`
 	background-color: ${({ theme }) => theme.breakline};
 `;
 
+export const ListItem = styled.li`
+	margin-bottom: 0.4rem;
+	::marker {
+		font-size: 1.2rem;
+		color: inherit;
+	}
+`;
+
 export const Span = styled(Typography.Span)`
 	font-size: 1.2rem;
 	line-height: 1.6rem;
-	margin-bottom: 2.4rem;
+	margin-bottom: 0.8rem;
 	color: ${({ theme }) => theme.p};
+	position: relative;
+	left: -0.4rem;
 `;

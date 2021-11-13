@@ -5,6 +5,7 @@ import { Colors } from 'environment';
 import { Link } from 'components';
 import { useActiveCell, useCell, useStatusColors, useTimeFilters, useCellFilters } from 'hooks';
 import {
+	ListItem,
 	Container,
 	CloseButton,
 	H6,
@@ -108,14 +109,14 @@ export function Overlay(): JSX.Element | null {
 				</Row>
 				<BreakLine />
 				<Row margin={'0 0 0.8rem 0'} justifyContent="flex-start">
-					<H6>Medium Risk</H6>
-					<H7 margin="0 0 0 1.5rem">(Average quality)</H7>
+					<H6>{cell.text}</H6>
 				</Row>
-				<Span>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-					incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-					nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-				</Span>
+				{cell.data.labels.map((t) => (
+					<ListItem>
+						<Span>{t}</Span>
+					</ListItem>
+				))}
+
 				<Link to="#">Read more</Link>
 			</Content>
 		</Container>

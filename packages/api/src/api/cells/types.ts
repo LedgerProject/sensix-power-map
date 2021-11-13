@@ -8,6 +8,7 @@ export interface CellOverviewData {
 	cid: string;
 	h: string; // hash
 	sid: CellStatus;
+	text: string;
 }
 
 export interface GetCellsOverviewData extends Metadata {
@@ -43,6 +44,7 @@ export interface HarmonicDistorsionsData {
 		THI: HarmonicDistortionsLineData;
 		THV: HarmonicDistortionsLineData;
 	};
+	labels: string[];
 	order: string[];
 }
 
