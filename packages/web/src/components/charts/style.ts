@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Sizes } from 'environment';
 
 export const TrendContainer = styled.div`
 	position: absolute;
@@ -6,6 +7,10 @@ export const TrendContainer = styled.div`
 	left: 0;
 	right: 30%;
 	bottom: 0;
+
+	@media (max-width: ${Sizes.sm}px) {
+		right: 50%;
+	}
 `;
 
 export const BarContainer = styled.div`

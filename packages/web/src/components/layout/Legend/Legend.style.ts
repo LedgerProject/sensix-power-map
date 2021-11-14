@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Typography } from 'components/displayers/Typography';
+import { Sizes } from 'environment';
 
 export const Container = styled.div`
 	position: fixed;
@@ -10,6 +11,10 @@ export const Container = styled.div`
 	padding: 2rem;
 	opacity: 0.9;
 	z-index: 99999;
+
+	@media (max-width: ${Sizes.sm}px) {
+		display: none;
+	}
 `;
 
 export const Status = styled(Typography.Span)`

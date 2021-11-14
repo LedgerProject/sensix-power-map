@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
+import { Sizes } from 'environment';
+
 import { Layers } from 'environment';
 import { Icon } from 'components/icons';
 import { Typography } from 'components/displayers/Typography';
@@ -26,6 +28,10 @@ export const Column = styled.div<MarginProps>`
 	flex-direction: column;
 	align-items: flex-end;
 	margin: ${({ margin }) => margin};
+
+	@media (max-width: ${Sizes.sm}px) {
+		flex: 0.5;
+	}
 
 	p,
 	h6 {
@@ -58,6 +64,13 @@ export const Container = styled(animated.div)<MarginProps & ContainerProps>`
 
 	&::-webkit-scrollbar {
 		display: none;
+	}
+
+	@media (max-width: ${Sizes.sm}px) {
+		left: 2rem;
+		bottom: 2rem;
+		right: 2rem;
+		width: auto;
 	}
 `;
 
@@ -128,7 +141,7 @@ export const H7 = styled(Typography.H6)<MarginProps>`
 
 export const P = styled(Typography.P)`
 	font-size: 1.6rem;
-	line-height: 1.5rem;
+	line-height: 2.2rem;
 	color: ${({ theme }) => theme.overlay.p};
 `;
 

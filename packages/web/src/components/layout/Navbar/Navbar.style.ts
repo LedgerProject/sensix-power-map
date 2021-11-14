@@ -20,6 +20,7 @@ export const Title = styled(Typography.H6)`
 `;
 
 export const Container = styled.div`
+	overflow: hidden;
 	background: ${({ theme }) => theme.background};
 	display: flex;
 	align-items: center;
