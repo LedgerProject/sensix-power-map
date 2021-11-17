@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Colors } from 'environment';
+import { Colors, Sizes } from 'environment';
 import { Icon } from 'components/icons';
 import { Typography } from 'components/displayers';
 
@@ -20,7 +20,6 @@ export const Title = styled(Typography.H6)`
 `;
 
 export const Container = styled.div`
-	overflow-x: hidden;
 	background: ${({ theme }) => theme.background};
 	display: flex;
 	align-items: center;
@@ -44,6 +43,10 @@ export const Link = styled.a<LinkProps>`
 	width: 10.5rem;
 	margin: ${({ margin }) => margin};
 
+	@media (max-width: ${Sizes.sm}px) {
+		display: none;
+	}
+
 	:hover {
 		color: ${({ theme }) => theme.link.hover};
 	}
@@ -52,7 +55,7 @@ export const Link = styled.a<LinkProps>`
 export const Right = styled.div`
 	height: 4rem;
 	border-left: 1px solid ${Colors.bluishGrey};
-	padding-left: 7.5rem;
+	padding-left: 4.8rem;
 	display: flex;
 	align-items: center;
 	svg {

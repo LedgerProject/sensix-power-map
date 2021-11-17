@@ -69,22 +69,20 @@ interface Props extends LayoutStyleProps {
 	width?: number | string;
 }
 
-export const DropdownMenu = React.forwardRef<HTMLDivElement, Props>(function(
+export const DropdownMenu = React.forwardRef<HTMLDivElement, Props>(function (
 	{ bounds, children, headerComponent, label, margin, offset, position, width },
 	ref
 ) {
-	const style = useMemo(() => computePosition(bounds, margin, offset, position), [
-		bounds,
-		margin,
-		offset,
-		position
-	]);
+	const style = useMemo(
+		() => computePosition(bounds, margin, offset, position),
+		[bounds, margin, offset, position]
+	);
 
 	return (
 		<Menu aria-label={label} ref={ref} role="listbox" style={style} width={width}>
 			<Scrollbars
 				autoHeight
-				renderTrackHorizontal={props => <div {...props} className="horizontal-track" />}
+				renderTrackHorizontal={(props) => <div {...props} className="horizontal-track" />}
 			>
 				{headerComponent}
 				{children}

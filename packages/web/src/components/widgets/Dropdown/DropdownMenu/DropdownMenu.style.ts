@@ -17,6 +17,10 @@ export const Menu = styled.div<Props>`
 		width !== undefined ? (typeof width === 'string' ? width : `${width}rem`) : 'auto'};
 	z-index: ${Layers.floater};
 
+	> div {
+		width: 100%;
+	}
+
 	.horizontal-track {
 		display: none;
 	}
