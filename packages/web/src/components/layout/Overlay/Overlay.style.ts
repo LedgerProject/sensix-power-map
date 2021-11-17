@@ -44,6 +44,7 @@ export const Container = styled(animated.div)<MarginProps & ContainerProps>`
 	right: 4rem;
 	top: 10rem;
 	min-width: 48.8rem;
+	width: 48.8rem;
 	max-height: calc(100% - 12.4rem); // top offset
 	z-index: ${Layers.overlay};
 	border-radius: 1rem;
@@ -67,7 +68,7 @@ export const Container = styled(animated.div)<MarginProps & ContainerProps>`
 		right: 2rem;
 		top: 6.4rem;
 		width: auto;
-		max-height: calc(100% - 6.4rem);
+		max-height: calc(100% - 8.4rem);
 	}
 `;
 
