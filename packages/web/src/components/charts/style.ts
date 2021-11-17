@@ -9,7 +9,6 @@ export const TrendContainer = styled.div`
 	bottom: 0;
 
 	@media (max-width: ${Sizes.sm}px) {
-		right: 50%;
 	}
 `;
 

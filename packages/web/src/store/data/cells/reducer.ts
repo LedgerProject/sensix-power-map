@@ -22,9 +22,7 @@ function cellsReducer(state: State = initialState, action: CellActions): State {
 			const { data } = action.payload;
 
 			return produce(state, (draft) => {
-				if (!draft.cells.byId[data.h]) {
-					draft.cells.byId[data.h] = data;
-				}
+				draft.cells.byId[data.h] = data;
 			});
 		}
 

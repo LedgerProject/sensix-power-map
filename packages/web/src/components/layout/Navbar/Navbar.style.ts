@@ -20,12 +20,12 @@ export const Title = styled(Typography.H6)`
 `;
 
 export const Container = styled.div`
-	overflow: hidden;
+	overflow-x: hidden;
 	background: ${({ theme }) => theme.background};
 	display: flex;
 	align-items: center;
 	width: 100%;
-	height: 5.4rem;
+	height: 5.6rem;
 	padding: 0 4rem;
 	box-shadow: ${({ theme }) => theme.navbar.shadow};
 	z-index: 99999;

@@ -41,6 +41,7 @@ export function RelativeTimeRangeDropdown({ width = 20 }: Props) {
 			title={(d) => `Past ${d || RELATIVE_TIME_RANGE_OPTIONS[0]} h`}
 			width={width}
 			onSelect={handleSelect}
+			height={5.4}
 		>
 			{RELATIVE_TIME_RANGE_OPTIONS.map((option) => (
 				<Dropdown.Item key={`${option}-hour-option`} data={option}>
