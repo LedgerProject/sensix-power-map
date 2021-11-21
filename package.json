@@ -1,59 +1,30 @@
 {
-  "name": "sensix-power-map",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@nivo/bar": "^0.73.1",
-    "@nivo/core": "^0.73.0",
-    "@nivo/line": "^0.73.0",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/leaflet": "^1.7.5",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "@types/react-leaflet": "^2.8.2",
-    "@types/react-router-dom": "^5.1.8",
-    "@types/react-transition-group": "^4.4.2",
-    "@types/styled-components": "^5.1.13",
-    "copy-webpack-plugin": "^9.0.1",
-    "immer": "^9.0.6",
-    "invariant": "^2.2.4",
-    "leaflet": "^1.7.1",
-    "react": "^17.0.2",
-    "react-app-rewired": "^2.1.8",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.2.0",
-    "react-leaflet": "^3.2.1",
-    "react-redux": "^7.2.4",
-    "react-router-dom": "^5.2.1",
-    "react-scripts": "4.0.3",
-    "react-transition-group": "^4.4.2",
-    "redux": "^4.1.1",
-    "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0",
-    "styled-components": "^5.3.1",
-    "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not op_mini all"
-  ]
+	"name": "sensix-map",
+	"version": "1.0.0",
+	"description": "sensix-map monorepo",
+	"private": true,
+	"workspaces": [
+		"packages/*"
+	],
+	"scripts": {
+		"reset:yarn": "yarn cache clean",
+		"reset:dists": "rimraf packages/*/dist",
+		"reset:modules": "rimraf node_modules/ packages/*/node_modules",
+		"reset": "yarn reset:yarn && yarn reset:dists && yarn reset:modules && yarn",
+		"build:api": "cd packages/api && yarn build && cd ../../"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@bitbucket.org/sensix/sensix-map-frontend.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://bitbucket.org/sensix/sensix-map-frontend/issues"
+	},
+	"homepage": "https://bitbucket.org/sensix/sensix-map-frontend#readme",
+	"dependencies": {
+		"prettier": "^2.4.1",
+		"rimraf": "^3.0.2"
+	}
 }
