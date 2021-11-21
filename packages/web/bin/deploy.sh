@@ -128,7 +128,7 @@ function check()
         echo "* Checking"
 
         version_url="${URL}/static/build_version.txt"
-        current_sha=$(wget -qO- ${version_url})
+        current_sha=$(wget -qO- --no-check-certificate ${version_url})
         echo "Fetching current version from ${version_url}"
         check_error $? "No current build version registered."
 
